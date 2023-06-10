@@ -1,4 +1,4 @@
-@include('template.public.app')
+@extends('template.public.app')
 
 @section('content')
     <div id="home" class="home-banner-area home-style-two">

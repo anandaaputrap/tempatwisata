@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('nama');
             $table->enum('gender', ['Laki', 'Perempuan'])->comment('Laki', 'Aktivasi');
-            $table->bigInteger('no_hp');
+            $table->bigInteger('no_hp')->nullable();
             $table->string('foto')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
