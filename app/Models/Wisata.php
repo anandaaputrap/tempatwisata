@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Wisata extends Model
 {
     use HasFactory;
+
+    public $table = 'wisata';
+
+    protected $fillable = [
+        'nama_tempat',
+        'alamat',
+        'deskripsi',
+        'status'
+    ];
+    
 }

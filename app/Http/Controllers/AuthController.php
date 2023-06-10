@@ -35,20 +35,11 @@ class AuthController extends Controller
             'nama' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|required_with:conpass|same:conpass',
-            'tempat'   => 'required',
-            'ttl'       =>'required|date',
-            'username' => 'required|unique:pembeli|min:8',
-            'no_hp'     => 'required|unique:pembeli|min:11',
+            'no_hp'     => 'required|unique:users|min:11',
             'gender'    => 'required'
 
         ],[
             'nama.required' => 'Nama tidak boleh kosong!',
-            'tempat.required' => 'Tempat Tanggal Lahir tidak boleh kosong!',
-            'ttl.required' => 'Tanggal Lahir tidak boleh kosong!',
-            'username.required' => 'Username tidak boleh kosong!',
-            'username.min' => 'Minimal Usernam 8 Karakter',
-            'username.unique' => 'Username Sudah Ada!',
-            'gender.required' => 'Gender tidak boleh kosong!',
             'no_hp.required' => 'Nomor HP tidak boleh kosong!',
             'no_hp.min' => 'Minimal Nomor HP 11 Karakter',
             'no_hp.unique' => 'Nomor HP Sudah Ada!',
