@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\KriteriaFasilitas;
 use Illuminate\Http\Request;
 
 class KriteriaFasilitasController extends Controller
@@ -14,7 +15,9 @@ class KriteriaFasilitasController extends Controller
      */
     public function index()
     {
-        //
+        $data = KriteriaFasilitas::all();
+
+        return view('template.admin.page.fasilitas.index', compact('data'));
     }
 
     /**

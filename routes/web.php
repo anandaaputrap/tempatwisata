@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('template.admin.page.blankpage');
+    return view('template.auth.login');
 });
+
+Route::post('/post-login', [AuthController::class, 'postLogin'])->name('postLogin');
+
 
 Route::get('/pub', function () {
     return view('template.public.pages.home');
+});
+
+
+Route::group(['middleware' => 'role:admin'], function () {
+
+    Route::prefix('admin')->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin');
+        // Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin');
+    });
 });

@@ -21,7 +21,7 @@ class AuthController extends Controller
 
     public function login()
     {
-        return view('auth.login');
+        return view('template.auth.login');
     }
 
     public function otp()
@@ -111,7 +111,7 @@ class AuthController extends Controller
                     
                 }
                 if (Auth::user()->getRoleNames()[0] == 'admin') {
-                    return redirect()->route('admin.dashboard.index');
+                    return redirect()->route('admin');
                     
                 }
             }
