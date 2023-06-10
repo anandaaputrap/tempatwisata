@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('template.admin.page.blankpage');
 });
+
+Route::get('/pub', function () {
+    return view('template.public.app');
+});
