@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/pub', function () {
-    return view('template.public.app');
+    return view('template.public.pages.home');
 });
