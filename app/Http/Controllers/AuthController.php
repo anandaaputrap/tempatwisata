@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OtpEmail;
 use App\Models\Otp;
 use App\Models\User;
 use Carbon\Carbon;
@@ -158,13 +159,18 @@ class AuthController extends Controller
 
     public function send($user)
     {
-        $data =  Otp::create([
+        $otp =  Otp::create([
             'user_id' => $user->id,
             'otp' => rand(123456, 999999),
             'expire_at' => Carbon::now()->addMinutes(10)
         ]);
         
-        Mail::to($user->email)->send(new MyTestMail($data));
+        $data = [
+            'otp' => $otp,
+            'subject' => 'Reset Password Notification',
+        ];
+
+        Mail::to($user->email)->send(new OtpEmail($data));
 
         return $data;
     }
@@ -178,7 +184,7 @@ class AuthController extends Controller
         ]);
 
         #Validation Logic
-        $verificationCode   = VerificationCode::where('user_id', Auth::user()->id)->where('otp', $request->otp)->first();
+        $verificationCode   = Otp::where('user_id', Auth::user()->id)->where('otp', $request->otp)->first();
 
         $now = Carbon::now();
         if (!$verificationCode) {
