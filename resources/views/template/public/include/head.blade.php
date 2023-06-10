@@ -1,14 +1,36 @@
-<link rel="icon" type="image/png" href="../images/favicon.png" />
-<meta charSet="utf-8" />
-<title>Detour - React Next.js Travel Booking Template</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="Detour - React Next.js Travel Booking Template" />
-<meta name="og:title" property="og:title" content="Detour - React Next.js Travel Booking Template" />
-<meta name="twitter:card" content="Detour - React Next.js Travel Booking Template" />
-<link rel="canonical" href="../index.html" />
-<meta name="next-head-count" content="7" />
-<link rel="preload" href=".{{ asset('_next') }}/static/css/64c21ef652aa4cded989.css" as="style" />
-<link rel="stylesheet" href=".{{ asset('_next') }}/static/css/64c21ef652aa4cded989.css" data-n-g="" /><noscript
-    data-n-css=""></noscript>
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Author: HiBootstrap, Category: Tourism, Multipurpose, HTML, SASS, Bootstrap"
+    />
+
+    <title>Wakatobi</title>
+
+    <link rel="stylesheet" href="{{ asset('assets2') }}/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="{{ asset('assets2') }}/css/fontawesome.min.css" />
+
+    <link rel="stylesheet" href="{{ asset('assets2') }}/css/boxicons.min.css" />
+
+    <link rel="stylesheet" href="{{ asset('assets2') }}/css/animate.min.css" />
+
+    <link rel="stylesheet" href="{{ asset('assets2') }}/css/bootstrap-datepicker.min.css" />
+
+    <link rel="stylesheet" href="{{ asset('assets2') }}/css/nice-select.css" />
+
+    <link rel="stylesheet" href="{{ asset('assets2') }}/css/magnific-popup.min.css" />
+
+    <link rel="stylesheet" href="{{ asset('assets2') }}/css/owl.carousel.min.css" />
+
+    <link rel="stylesheet" href="{{ asset('assets2') }}/css/meanmenu.min.css" />
+
+    <link rel="stylesheet" href="{{ asset('assets2') }}/css/style.css" />
+
+    <link rel="stylesheet" href="{{ asset('assets2') }}/css/responsive.css" />
+
+    <link rel="stylesheet" href="{{ asset('assets2') }}/css/theme-dark.css" />
+
+    <link rel="icon" href="{{ asset('assets2') }}/img/logowakatobi.png" type="image/png" />
 
 @stack('css')
