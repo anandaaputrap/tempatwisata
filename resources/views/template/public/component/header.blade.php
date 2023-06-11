@@ -25,19 +25,14 @@
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active toggle">Home</a>
+                            <a href="#" class="nav-link toggle {{ Request::is('/') ? 'active' : '' }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link toggle">Destinasi</a>
+                            <a href="{{ route('destinasi') }}"
+                                class="nav-link toggle {{ Request::is('destinasi') ? 'active' : '' }}">Destinasi</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link toggle">Kategori Wisata</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link toggle">Rekomendasi Wisata</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="btn-secondary">
+                            <a href="{{ route('login') }}" class="btn-secondary">
                                 Login <i class="bx bx-log-in-circle"></i>
                             </a>
                         </li>
