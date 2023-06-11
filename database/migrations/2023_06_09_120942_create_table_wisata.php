@@ -17,6 +17,7 @@ class CreateTableWisata extends Migration
             $table->integerIncrements('id');
             $table->string('nama_tempat');
             $table->string('alamat');
+            $table->string('foto');
             $table->text('deskripsi');
             $table->enum('status', ['Active', 'Off'])->comment('Active', 'Off');
             $table->timestamps();

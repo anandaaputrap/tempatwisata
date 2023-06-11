@@ -20,7 +20,6 @@ class CreateTableKriteriaHargaTiket extends Migration
             $table->string('jawaban_c');
             $table->string('jawaban_d');
             $table->string('jawaban_e');
-            $table->enum('status', ['Active', 'Off'])->comment('Active', 'Off');
             $table->timestamps();
         });
     }
