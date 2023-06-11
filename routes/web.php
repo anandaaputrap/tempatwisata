@@ -52,3 +52,15 @@ Route::group(['middleware' => 'role:admin'], function () {
         ]);
     });
 });
+Route::get('/pub/login', function () {
+    return view('template.public.pages.login');
+})->name('login');
+Route::get('/pub/register', function () {
+    return view('template.public.pages.register');
+})->name('register');
+Route::get('/pub/destinasi', function () {
+    return view('template.public.pages.destinasi');
+})->name('destinasi');
+Route::get('/pub/destinasidetail', function () {
+    return view('template.public.pages.detaildestinasi');
+})->name('detail');

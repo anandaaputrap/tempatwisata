@@ -19,7 +19,7 @@
                                     Jelajahi Wakatobi Sepuas Yang Anda Inginkan dan Dapatkan Pengalaman
                                     Yang Tak Terlupakan
                                 </p>
-                                <a href="destinations.html" class="btn-primary">Destinasi</a>
+                                <a href="{{ route('destinasi') }}" class="btn-primary">Destinasi</a>
                             </div>
                         </div>
                     </div>
@@ -84,10 +84,23 @@
                                     <h6>Harga Terjangkau</h6>
                                 </div>
                             </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="content-list">
+                                    <i class="bx bx-happy-heart-eyes"></i>
+                                    <h6>Pengalaman Terbaik</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="content-list">
+                                    <i class="bx bx-wink-smile"></i>
+                                    <h6>Suasana Ternyaman</h6>
+                                </div>
+                            </div>
                         </div>
                         <div class="about-btn">
-                            <a href="contact.html" class="btn-primary">Hubungi Kami</a>
-                            <a href="about-us.html" class="btn-primary">Read More</a>
+                            <a href="https://wa.me/6282131775186" target="_blank" class="btn-primary">Hubungi Kami</a>
+                            <a href="https://id.wikipedia.org/wiki/Kabupaten_Wakatobi" target="_blank"
+                                class="btn-primary">Read More</a>
                         </div>
                     </div>
                 </div>

@@ -31,12 +31,6 @@
                         <li>
                             <a href="destinations.html">Destinasi</a>
                         </li>
-                        <li>
-                            <a href="blog-style-1.html">Kategori Wisata</a>
-                        </li>
-                        <li>
-                            <a href="team.html">Rekomendasi Wisata</a>
-                        </li>
                     </ul>
                 </div>
             </div>
