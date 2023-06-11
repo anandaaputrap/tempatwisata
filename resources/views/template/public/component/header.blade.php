@@ -3,7 +3,7 @@
         <div class="container">
             <div class="main-responsive-menu">
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="{{ route('home') }}">
                         <img src="{{ asset('assets2') }}/img/logowakatobi.png" class="logo1" alt="Logo"
                             width="40" />
                         <img src="{{ asset('assets2') }}/img/logowakatobi.png" class="logo2" alt="Logo"
@@ -16,7 +16,7 @@
     <div class="main-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     <img src="{{ asset('assets2') }}/img/logowakatobi.png" class="logo1" alt="Logo"
                         width="40" />
                     <img src="{{ asset('assets2') }}/img/logowakatobi.png" class="logo2" alt="Logo"
@@ -25,7 +25,7 @@
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link toggle {{ Request::is('/') ? 'active' : '' }}">Home</a>
+                            <a href="{{ route('home') }}" class="nav-link toggle {{ Request::is('home') ? 'active' : '' }}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('destinasi') }}"

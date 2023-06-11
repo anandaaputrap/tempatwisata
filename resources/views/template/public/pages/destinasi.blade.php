@@ -6,9 +6,9 @@
             <div class="page-title-content">
                 <h1>Destinasi</h1>
                 <ul>
-                    <li class="item"><a href="index.html">Home</a></li>
+                    <li class="item"><a href="{{ route('home') }}">Home</a></li>
                     <li class="item">
-                        <a href="destinations.html"><i class="bx bx-chevrons-right"></i>Destinasi</a>
+                        <a href="{{ route('destinasi') }}"><i class="bx bx-chevrons-right"></i>Destinasi</a>
                     </li>
                 </ul>
             </div>
@@ -28,20 +28,21 @@
                 </p>
             </div>
             <div class="row">
+                @foreach ($data as $item)
                 <div class="col-lg-4 col-md-6">
                     <div class="item-single mb-30">
                         <div class="image">
-                            <img src="{{ asset('assets2') }}/img/pantaihutete.jpg" alt="Demo Image" />
+                            <img src="{{ asset('uploads/' . $item->foto) }}" alt="Demo Image" />
                         </div>
                         <div class="content">
-                            <span class="location"><i class="bx bx-map"></i>Desa Kulati, Kec. Tomia</span>
+                            <span class="location"><i class="bx bx-map"></i>{{ $item->alamat }}</span>
                             <h3>
-                                <a href="{{ route('detail') }}">Pantai Huntete</a>
+                                <a href="{{ route('destinasi.detail', $item->id) }}">{{ $item->nama_tempat }}</a>
                             </h3>
                             <div class="review">
                                 <i class="bx bx-smile"></i>
                                 <span>9</span>
-                                <span>Superb</span>
+                                <span>Reviewer</span>
                             </div>
                             <p>
                                 Desiran ombak saling memburu dan terhempas pasir pantai. Riuh angin silih berganti bertiup
@@ -50,52 +51,8 @@
                             <hr />
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="{{ asset('assets2') }}/img/pantaihutete.jpg" alt="Demo Image" />
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class="bx bx-map"></i>Kecamatan Tomia</span>
-                            <h3>
-                                <a href="destination-details.html">Pulau Anano</a>
-                            </h3>
-                            <div class="review">
-                                <i class="bx bx-smile"></i>
-                                <span>7.5</span>
-                                <span>Amazing</span>
-                            </div>
-                            <p>
-                                Pantai yang sangat indah dengan pasir putih yang halus dan air pantai yang sangat bening,
-                                jadi dijamin kamu akan betah berlama lama.
-                            </p>
-                            <hr />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 m-auto">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="{{ asset('assets2') }}/img/pantaihutete.jpg" alt="Demo Image" />
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class="bx bx-map"></i>Numana, Kec.Wangi-Wangi</span>
-                            <h3>
-                                <a href="destination-details.html">Onemohute Wakatobi Dive</a>
-                            </h3>
-                            <div class="review">
-                                <i class="bx bx-smile"></i>
-                                <span>8.5</span>
-                                <span>Superb</span>
-                            </div>
-                            <p>
-                                Menyelami keindahan bawah laut Onemohute yang spektakuler dan melihat keindahan laut disini.
-                            </p>
-                            <hr />
-                        </div>
-                    </div>
-                </div>
+                </div>                 
+                @endforeach
             </div>
         </div>
     </section>

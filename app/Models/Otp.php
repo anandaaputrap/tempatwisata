@@ -9,11 +9,22 @@ class Otp extends Model
 {
     use HasFactory;
 
-    public $table = 'kritik_saran';
+    public $table = 'otp';
 
     protected $fillable = [
         'user_id',
         'otp',
-        'expire_at'
+        'expire_at',
+        'status'
     ];
+
+    /**
+     * Get the user associated with the Otp
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->hasOne(User::class, 'user_id', 'id');
+    }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\KriteriaPelayananController;
 use App\Http\Controllers\Admin\KriteriaSuasanaController;
 use App\Http\Controllers\Admin\WisataController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\User\PublicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,20 +23,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('template.auth.login');
-});
+    return view('template.public.pages.home');
+})->name('home');
 
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/post-login', [AuthController::class, 'postLogin'])->name('postLogin');
 Route::post('/post-Logout', [AuthController::class, 'postLogout'])->name('postLogout');
+Route::post('/register-store', [AuthController::class, 'store'])->name('store.register');
 
+Route::get('/otp', [AuthController::class, 'otp'])->name('otp');
+Route::post('/postotp', [AuthController::class, 'verifikasi'])->name('postotp');
 
-Route::get('/pub', function () {
-    return view('template.public.pages.home');
-});
+Route::get('/destinasi', [PublicController::class, 'index'])->name('destinasi');
+Route::get('/destinasi-detail/{id}', [PublicController::class, 'detail'])->name('destinasi.detail');
 
 
 Route::group(['middleware' => 'role:admin'], function () {
-
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin');
         Route::get('/detail-fasilitas/{id}', [KriteriaFasilitasController::class, 'createDetail'])->name('create.detail.fasilitas');
@@ -52,15 +56,15 @@ Route::group(['middleware' => 'role:admin'], function () {
         ]);
     });
 });
-Route::get('/pub/login', function () {
-    return view('template.public.pages.login');
-})->name('login');
-Route::get('/pub/register', function () {
-    return view('template.public.pages.register');
-})->name('register');
-Route::get('/pub/destinasi', function () {
-    return view('template.public.pages.destinasi');
-})->name('destinasi');
-Route::get('/pub/destinasidetail', function () {
-    return view('template.public.pages.detaildestinasi');
-})->name('detail');
+
+Route::group(['middleware' => 'role:user'], function () {
+
+    Route::prefix('public')->group(function () {
+    });
+});
+// Route::get('/pub/destinasi', function () {
+//     return view('template.public.pages.destinasi');
+// })->name('destinasi');
+// Route::get('/pub/destinasidetail', function () {
+//     return view('template.public.pages.detaildestinasi');
+// })->name('detail');

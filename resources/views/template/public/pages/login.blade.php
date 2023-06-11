@@ -21,18 +21,19 @@
     <div class="authentication-section">
         <div class="container">
             <div class="main-form ptb-100">
-                <form id="#authForm">
+                <form id="#authForm" action="{{ route('postLogin') }}" method="post">
+                    @csrf
                     <div class="content">
                         <h3>Selamat Datang</h3>
                         <p>Silahkan Login Apabila Sudah Mempunyai Akun</p>
                     </div>
                     <div class="form-group">
-                        <div class="input-icon"><i class="bx bx-user"></i></div>
-                        <input type="text" class="form-control" placeholder="Username" required />
+                        <div class="input-icon"><i class="bx bx-at"></i></div>
+                        <input type="email" class="form-control" name="email" placeholder="Email Address" required />
                     </div>
                     <div class="form-group">
-                        <div class="input-icon"><i class="bx bx-at"></i></div>
-                        <input type="text" class="form-control" placeholder="Email Address" required />
+                        <div class="input-icon"><i class="bx bx-key"></i></div>
+                        <input type="password" name="password" class="form-control" placeholder="Masukan Password" required />
                     </div>
                     <div class="row align-items-center mb-30">
                         <div class="col-lg-6 col-sm-6 col-6">

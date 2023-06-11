@@ -15,6 +15,7 @@
         @include('template.public.component.header')
     </header>
 
+    @include('template.admin.component.alert')
     @yield('content')
 
     <footer class="footer-area">

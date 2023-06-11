@@ -21,23 +21,32 @@
     <div class="authentication-section">
         <div class="container">
             <div class="main-form ptb-100">
-                <form id="#authForm">
+                <form id="" action="{{ route('store.register') }}" method="POST">
+                    @csrf
                     <div class="content">
                         <h3>Buat Akun</h3>
                         <p>Silahkan Daftar Akun Terlebih Dahulu</p>
                     </div>
                     <div class="form-group">
                         <div class="input-icon"><i class="bx bx-user"></i></div>
-                        <input type="text" class="form-control" placeholder="Username" required />
+                        <input type="text" class="form-control" name="nama" placeholder="Masukan Nama" required />
                     </div>
+
                     <div class="form-group">
                         <div class="input-icon"><i class="bx bx-at"></i></div>
-                        <input type="text" class="form-control" placeholder="Email Address" required />
+                        <input type="email" class="form-control" name="email" placeholder="Masukan Email" required />
                     </div>
                     <div class="form-group">
-                        <div class="input-icon"><i class="bx bx-show"></i></div>
-                        <input type="password" class="form-control" placeholder="Password" required />
+                        <div class="input-icon"><i class="bx bx-phone"></i></div>
+                        <input type="number" class="form-control" name="no_hp" placeholder="Masukan Nomor Handphone"
+                            required />
                     </div>
+
+                    <div class="form-group">
+                        <div class="input-icon"><i class="bx bx-show"></i></div>
+                        <input type="password" name="password" class="form-control" placeholder="Password" required />
+                    </div>
+
                     <div class="row align-items-start mb-30">
                         <div class="col-lg-12">
                             <div class="checkbox">
