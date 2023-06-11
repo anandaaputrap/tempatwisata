@@ -16,7 +16,6 @@ class KriteriaPelayanan extends Model
         'jawaban_b',
         'jawaban_c',
         'jawaban_d',
-        'jawaban_e',
-        'status'
+        'jawaban_e'
     ];
 }

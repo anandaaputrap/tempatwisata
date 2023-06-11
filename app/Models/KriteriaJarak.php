@@ -16,6 +16,5 @@ class KriteriaJarak extends Model
         'jawaban_c',
         'jawaban_d',
         'jawaban_e',
-        'status'
     ];
 }

@@ -15,7 +15,8 @@ class Wisata extends Model
         'nama_tempat',
         'alamat',
         'deskripsi',
-        'status'
+        'status',
+        'foto'
     ];
     
 }

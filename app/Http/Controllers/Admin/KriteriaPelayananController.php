@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\KriteriaPelayanan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KriteriaPelayananController extends Controller
 {
@@ -14,7 +16,8 @@ class KriteriaPelayananController extends Controller
      */
     public function index()
     {
-        //
+        $data = KriteriaPelayanan::first();
+        return view('template.admin.page.pelayanan.index', compact('data'));
     }
 
     /**
@@ -24,7 +27,7 @@ class KriteriaPelayananController extends Controller
      */
     public function create()
     {
-        //
+        return view('template.admin.page.pelayanan.create_edit');
     }
 
     /**
@@ -35,7 +38,32 @@ class KriteriaPelayananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            'jawaban_a' => 'required',
+            'jawaban_b' => 'required',
+            'jawaban_c' => 'required',
+            'jawaban_d' => 'required',
+            'jawaban_e' => 'required',
+        ]);
+        DB::beginTransaction();
+        try {
+            KriteriaPelayanan::create([
+                'jawaban_a' => $validation['jawaban_a'],
+                'jawaban_b' => $validation['jawaban_b'],
+                'jawaban_c' => $validation['jawaban_c'],
+                'jawaban_d' => $validation['jawaban_d'],
+                'jawaban_e' => $validation['jawaban_e'],
+            ]);
+            DB::commit();
+
+            return redirect()->back()->with('success', 'Berhasil Menambah Data');
+        } catch (\Throwable $th) {
+            //throw $th;
+            dd($th);
+            DB::rollBack();
+            return redirect()->back()->with('errors', $th->getMessage());
+
+        }
     }
 
     /**
@@ -57,7 +85,8 @@ class KriteriaPelayananController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = KriteriaPelayanan::where('id', $id)->first();
+        return view('template.admin.page.pelayanan.create_edit', compact('data'));
     }
 
     /**
@@ -69,8 +98,36 @@ class KriteriaPelayananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            'jawaban_a' => 'required',
+            'jawaban_b' => 'required',
+            'jawaban_c' => 'required',
+            'jawaban_d' => 'required',
+            'jawaban_e' => 'required',
+        ]);
+        DB::beginTransaction();
+        try {
+            $data = KriteriaPelayanan::where('id', $id)->first();
+            
+            $data->update([
+                'jawaban_a' => $validation['jawaban_a'],
+                'jawaban_b' => $validation['jawaban_b'],
+                'jawaban_c' => $validation['jawaban_c'],
+                'jawaban_d' => $validation['jawaban_d'],
+                'jawaban_e' => $validation['jawaban_e'],
+            ]);
+            DB::commit();
+
+            return redirect()->back()->with('success', 'Berhasil Merubah Data');
+        } catch (\Throwable $th) {
+            //throw $th;
+            dd($th);
+            DB::rollBack();
+            return redirect()->back()->with('errors', $th->getMessage());
+
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
