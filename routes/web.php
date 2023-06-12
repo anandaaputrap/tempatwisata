@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\KriteriaHargaController;
 use App\Http\Controllers\Admin\KriteriaJarakController;
 use App\Http\Controllers\Admin\KriteriaPelayananController;
 use App\Http\Controllers\Admin\KriteriaSuasanaController;
+use App\Http\Controllers\Admin\ResultController;
 use App\Http\Controllers\Admin\WisataController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\User\PublicController;
@@ -49,6 +50,7 @@ Route::group(['middleware' => 'role:admin'], function () {
             'kriteria-jarak' => KriteriaJarakController::class,
             'kriteria-pelayanan' => KriteriaPelayananController::class,
             'kriteria-suasana' => KriteriaSuasanaController::class,
+            'perhitungan-data' => ResultController::class,
         ]);
     });
 });

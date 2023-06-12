@@ -44,289 +44,99 @@
                         <div class="col-lg-12">
                             <div class="booking-form">
                                 <form action="{{ route('survei.wisata.post') }}" method="POST">
-                                    <input type="hidden" name="id_wisata" value="{{ $data->id }}">
-                                    <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
+                                    <input type="hidden" name="wisata_id" value="{{ $data->id }}">
+                                    <input type="hidden" name="created_by" value="{{ Auth::user()->id }}">
                                     @csrf
                                     <div class="content mt-3 mb-3">
                                         <h3>Harga Tiket</h3>
                                         <div class="row align-items-center">
+                                            @foreach ($kriteriaTiket as $item)
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" value="a" type="radio" name="tiketJawaban" id="tiketJawaban2">
+                                                        <input class="form-check-input" value="{{ $item->bobot }}" type="radio" name="harga_tiket" id="tiketJawaban2">
                                                         <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaTiket->jawaban_a }}
+                                                          {{ $item->harga }}
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="b" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaTiket->jawaban_b }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="c" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaTiket->jawaban_c }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="d" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaTiket->jawaban_d }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="e" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaTiket->jawaban_e }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
+
                                     <div class="content mt-3 mb-3">
                                         <h3>Jarak</h3>
                                         <div class="row align-items-center">
+                                            @foreach ($kriteriaJarak as $item)
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" value="a" type="radio" name="tiketJawaban" id="tiketJawaban2">
+                                                        <input class="form-check-input" value="{{ $item->bobot }}" type="radio" name="jarak" id="tiketJawaban2">
                                                         <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaJarak->jawaban_a }}
+                                                          {{ $item->jarak }}
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="b" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaJarak->jawaban_b }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="c" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaJarak->jawaban_c }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="d" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaJarak->jawaban_d }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="e" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaJarak->jawaban_e }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
+
                                     <div class="content mt-3 mb-3">
                                         <h3>Pelayanan</h3>
                                         <div class="row align-items-center">
+                                            @foreach ($kriteriaPelayanan as $item)
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" value="a" type="radio" name="tiketJawaban" id="tiketJawaban2">
+                                                        <input class="form-check-input" value="{{ $item->bobot }}" type="radio" name="pelayanan" id="tiketJawaban2">
                                                         <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaPelayanan->jawaban_a }}
+                                                          {{ $item->pelayanan }}
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="b" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaPelayanan->jawaban_b }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="c" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaPelayanan->jawaban_c }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="d" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaPelayanan->jawaban_d }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="e" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaPelayanan->jawaban_e }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
+
                                     <div class="content mt-3 mb-3">
                                         <h3>Suasana</h3>
                                         <div class="row align-items-center">
+                                            @foreach ($kriteriaSuasana as $item)
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" value="a" type="radio" name="tiketJawaban" id="tiketJawaban2">
+                                                        <input class="form-check-input" value="{{ $item->bobot }}" type="radio" name="suasana" id="tiketJawaban2">
                                                         <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaSuasana->jawaban_a }}
+                                                          {{ $item->suasana }}
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="b" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaSuasana->jawaban_b }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="c" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaSuasana->jawaban_c }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="d" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaSuasana->jawaban_d }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="e" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $kriteriaSuasana->jawaban_e }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
+
                                     <div class="content mt-3 mb-3">
                                         <h3>Fasilitas</h3>
-                                        @foreach ($kriteriaFasilitas as $item)
-                                        <div class="row align-items-center mt-2">
-                                            <div class="content">
-                                                <h4>{{ $item->fasilitas }} = ( {{$item->indikator}} )</h4>
-                                            </div>
+                                        <div class="row align-items-center">
+                                            @foreach ($kriteriaFasilitas as $item)
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" value="a" type="radio" name="tiketJawaban" id="tiketJawaban2">
+                                                        <input class="form-check-input" value="{{ $item->bobot }}" type="radio" name="fasilitas" id="tiketJawaban2">
                                                         <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $item->jawaban_a }}
+                                                          {{ $item->keterangan }}
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="b" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $item->jawaban_b }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="c" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $item->jawaban_c }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="d" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $item->jawaban_d }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input"  value="e" type="radio" name="tiketJawaban" id="tiketJawaban2">
-                                                        <label class="form-check-label" for="tiketJawaban2">
-                                                          {{ $item->jawaban_e }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
-                                        @endforeach
                                     </div>
+
                                     <button type="submit" class="btn-primary">
                                         Update
                                     </button>

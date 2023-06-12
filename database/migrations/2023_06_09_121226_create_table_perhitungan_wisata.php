@@ -20,9 +20,8 @@ class CreateTablePerhitunganWisata extends Migration
             $table->integer('jarak');
             $table->integer('pelayanan');
             $table->integer('suasana');
-            $table->double('total');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users');
             $table->unsignedInteger('wisata_id');
             $table->foreign('wisata_id')->references('id')->on('wisata');
             $table->timestamps();

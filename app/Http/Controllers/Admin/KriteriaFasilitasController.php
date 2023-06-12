@@ -41,26 +41,19 @@ class KriteriaFasilitasController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            'jawaban_a' => 'required',
-            'jawaban_b' => 'required',
-            'jawaban_c' => 'required',
-            'jawaban_d' => 'required',
-            'jawaban_e' => 'required',
+            'keterangan' => 'required',
+            'bobot' => 'required',
             'fasilitas' => 'required',
-            'kriteria' => 'required',
+            'indikator' => 'required',
         ]);
 
         DB::beginTransaction();
         try {
             KriteriaFasilitas::create([
                 'fasilitas' => $validation['fasilitas'],
-                'indikator'  => $validation['kriteria'],
-                'status' => 'Active',
-                'jawaban_a' => $validation['jawaban_a'],
-                'jawaban_b' => $validation['jawaban_b'],
-                'jawaban_c' => $validation['jawaban_c'],
-                'jawaban_d' => $validation['jawaban_d'],
-                'jawaban_e' => $validation['jawaban_e']
+                'indikator'  => $validation['indikator'],
+                'keterangan' => $validation['keterangan'],
+                'bobot' => $validation['bobot']
             ]);
             DB::commit();
 
@@ -107,13 +100,10 @@ class KriteriaFasilitasController extends Controller
     public function update(Request $request, $id)
     {
         $validation = $request->validate([
-            'jawaban_a' => 'required',
-            'jawaban_b' => 'required',
-            'jawaban_c' => 'required',
-            'jawaban_d' => 'required',
-            'jawaban_e' => 'required',
+            'keterangan' => 'required',
+            'bobot' => 'required',
             'fasilitas' => 'required',
-            'kriteria' => 'required',
+            'indikator' => 'required',
         ]);
         
         DB::beginTransaction();
@@ -121,12 +111,10 @@ class KriteriaFasilitasController extends Controller
             $data = KriteriaFasilitas::where('id', $id)->first();
 
             $data->update([
-                'fasilitas' => $request->fasilitas,
-                'jawaban_a' => $validation['jawaban_a'],
-                'jawaban_b' => $validation['jawaban_b'],
-                'jawaban_c' => $validation['jawaban_c'],
-                'jawaban_d' => $validation['jawaban_d'],
-                'jawaban_e' => $validation['jawaban_e']
+                'fasilitas' => $validation['fasilitas'],
+                'indikator'  => $validation['indikator'],
+                'keterangan' => $validation['keterangan'],
+                'bobot' => $validation['bobot']
             ]);
 
             DB::commit();

@@ -20,8 +20,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Fasilitas</th>
-                                <th>Status</th>
-                                <th>Aksi</th>
+                                <th>keterangan</th>
+                                <th>indikator</th>
+                                <th>Bobot</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,26 +30,9 @@
                             <tr>    
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->fasilitas }}</td>
-                                <td>{{ status($item->status) }}</td>
-                                <td>
-                                    <div class="col-auto m-0 row">
-                                        <div class="col-auto g-1">
-                                            <a href="{{ route('kriteria-fasilitas.edit', $item->id) }}"
-                                                class="btn btn-warning" target="_blank"><span class="fa fa-pencil"></span></a>
-                                        </div>
-                                        <div class="col-auto g-1">
-                                            <form action="{{ route('kriteria-fasilitas.destroy', $item->id) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                                @if ($item->status == 'Active')
-                                                    <button type="submit" class="btn btn-primary"><span class="fa fa-toggle-on"></span></button>
-                                                @else
-                                                    <button type="submit" class="btn btn-danger"><span class="fa fa-toggle-off"></span></button>
-                                                @endif
-                                            </form>
-                                        </div>
-                                    </div>
-                                </td>
+                                <td>{{ $item->keterangan }}</td>
+                                <td>{{ $item->indikator }}</td>
+                                <td>{{ $item->bobot }}</td>
                             </tr>
                             @endforeach
                         </tbody>
