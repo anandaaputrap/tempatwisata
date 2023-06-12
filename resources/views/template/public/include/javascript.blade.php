@@ -21,5 +21,39 @@
 <script src="{{ asset('assets2') }}/js/jquery.ajaxchimp.min.js"></script>
 
 <script src="{{ asset('assets2') }}/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script>
+
+$(document).ready(function(){
+    $("a.submit").click(function(){
+        document.getElementById("myForm").submit();
+    }); 
+});
+
+    @if($message = session('success'))
+    Swal.fire(
+      'Good job!',
+      '{{ $message }}',
+      'success'
+    )
+    @endif
+
+    @if($message = session('errors'))
+
+    @endif
+
+@if ($errors->any())
+    Swal.fire({
+  icon: 'error',
+  title: 'Something went wrong!',
+  text: @foreach ($errors->all() as $error)
+                    {{ $error }}
+             @endforeach,
+  footer: '<a href="">Why do I have this issue?</a>'
+})
+@endif
+</script>
 
 @stack('js')

@@ -56,6 +56,10 @@ Route::group(['middleware' => 'role:admin'], function () {
 Route::group(['middleware' => 'role:user'], function () {
 
     Route::prefix('public')->group(function () {
+
+        Route::get('/profile', [PublicController::class, 'profile'])->name('profile');
+        Route::post('/edit-profile', [PublicController::class, 'editProfile'])->name('edit.profile');
+
     });
 });
 // Route::get('/pub/destinasi', function () {
