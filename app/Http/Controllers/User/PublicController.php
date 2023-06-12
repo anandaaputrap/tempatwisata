@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\KriteriaFasilitas;
+use App\Models\KriteriaHargaTiket;
+use App\Models\KriteriaJarak;
+use App\Models\KriteriaPelayanan;
+use App\Models\KriteriaSuasana;
 use App\Models\User;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
@@ -51,6 +56,30 @@ class PublicController extends Controller
         }
 
     }
+
+    public function survei($id) {
+        $data = Wisata::where('id', $id)->first();
+        $kriteriaFasilitas = KriteriaFasilitas::all();
+        $kriteriaTiket =  KriteriaHargaTiket::first();
+        $kriteriaJarak =  KriteriaJarak::first();
+        $kriteriaPelayanan =  KriteriaPelayanan::first();
+        $kriteriaSuasana =  KriteriaSuasana::first();
+
+        return view('template.public.pages.survei', compact([
+            'data',
+            'kriteriaFasilitas',
+            'kriteriaTiket',
+            'kriteriaJarak',
+            'kriteriaPelayanan',
+            'kriteriaSuasana',
+
+        ]));
+    }
+
+    public function surveiStore(Request $request) {
+        dd($request->all());
+    }
+    
 
 
 

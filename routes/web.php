@@ -60,6 +60,9 @@ Route::group(['middleware' => 'role:user'], function () {
         Route::get('/profile', [PublicController::class, 'profile'])->name('profile');
         Route::post('/edit-profile', [PublicController::class, 'editProfile'])->name('edit.profile');
 
+        Route::get('/survei-wisata/{id}', [PublicController::class, 'survei'])->name('survei.wisata');
+        Route::post('/survei-wisata', [PublicController::class, 'surveiStore'])->name('survei.wisata.post');
+
     });
 });
 // Route::get('/pub/destinasi', function () {

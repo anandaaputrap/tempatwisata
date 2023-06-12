@@ -54,7 +54,7 @@ class KriteriaFasilitasController extends Controller
         try {
             KriteriaFasilitas::create([
                 'fasilitas' => $validation['fasilitas'],
-                'kriteria'  => $validation['kriteria'],
+                'indikator'  => $validation['kriteria'],
                 'status' => 'Active',
                 'jawaban_a' => $validation['jawaban_a'],
                 'jawaban_b' => $validation['jawaban_b'],
@@ -68,14 +68,10 @@ class KriteriaFasilitasController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
             DB::rollBack();
+            dd($th);
             return redirect()->back()->with('errors', $th->getMessage());
 
         }
-    }
-
-    public function createDetail($id)  
-    {
-        return view('template.admin.page.fasilitas.detail.create_edit', compact('id'));
     }
     
     /**
