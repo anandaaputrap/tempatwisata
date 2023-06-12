@@ -42,10 +42,6 @@ Route::get('/destinasi-detail/{id}', [PublicController::class, 'detail'])->name(
 Route::group(['middleware' => 'role:admin'], function () {
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin');
-        Route::get('/detail-fasilitas/{id}', [KriteriaFasilitasController::class, 'createDetail'])->name('create.detail.fasilitas');
-        Route::post('/detail-fasilitas-post', [KriteriaFasilitasController::class, 'storeDetail'])->name('post.detail.fasilitas'); 
-        Route::get('/edit-detail-fasilitas/{id}', [KriteriaFasilitasController::class, 'editDetail'])->name('edit.detail.fasilitas');
-        Route::post('/detail-fasilitas-update{id}', [KriteriaFasilitasController::class, 'updateDetail'])->name('update.detail.fasilitas'); 
         Route::resources([
             'wisata' => WisataController::class,
             'kriteria-fasilitas' => KriteriaFasilitasController::class,
@@ -60,6 +56,10 @@ Route::group(['middleware' => 'role:admin'], function () {
 Route::group(['middleware' => 'role:user'], function () {
 
     Route::prefix('public')->group(function () {
+
+        Route::get('/profile', [PublicController::class, 'profile'])->name('profile');
+        Route::post('/edit-profile', [PublicController::class, 'editProfile'])->name('edit.profile');
+
     });
 });
 // Route::get('/pub/destinasi', function () {

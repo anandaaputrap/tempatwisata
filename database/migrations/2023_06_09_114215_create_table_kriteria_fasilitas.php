@@ -16,6 +16,12 @@ class CreateTableKriteriaFasilitas extends Migration
         Schema::create('kriteria_fasilitas', function (Blueprint $table) {
             $table->integerIncrements('id');
             $table->string('fasilitas');
+            $table->string('indikator');
+            $table->string('jawaban_a');
+            $table->string('jawaban_b');
+            $table->string('jawaban_c');
+            $table->string('jawaban_d');
+            $table->string('jawaban_e');
             $table->enum('status', ['Active', 'Off'])->comment('Active', 'Off');
             $table->timestamps();
         });

@@ -20,7 +20,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Fasilitas</th>
-                                <th>Detail</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
@@ -30,13 +29,6 @@
                             <tr>    
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->fasilitas }}</td>
-                                <td>
-                                    @if ($item->detail->isEmpty())
-                                    <a href="{{ route('create.detail.fasilitas', $item->id) }}" class="btn btn-warning" target="_blank">Tambah Detail</a>
-                                    @else
-                                    <a href="{{ route('edit.detail.fasilitas', $item->id) }}" class="btn btn-primary" target="_blank">Edit Detail</a>
-                                    @endif
-                                </td>
                                 <td>{{ status($item->status) }}</td>
                                 <td>
                                     <div class="col-auto m-0 row">
