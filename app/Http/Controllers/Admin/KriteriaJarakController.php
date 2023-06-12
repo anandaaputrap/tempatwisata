@@ -16,7 +16,7 @@ class KriteriaJarakController extends Controller
      */
     public function index()
     {
-        $data = KriteriaJarak::first();
+        $data = KriteriaJarak::all();
         return view('template.admin.page.jarak.index', compact('data'));
     }
 
@@ -39,20 +39,14 @@ class KriteriaJarakController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            'jawaban_a' => 'required',
-            'jawaban_b' => 'required',
-            'jawaban_c' => 'required',
-            'jawaban_d' => 'required',
-            'jawaban_e' => 'required',
+            'jarak' => 'required',
+            'bobot' => 'required',
         ]);
         DB::beginTransaction();
         try {
             KriteriaJarak::create([
-                'jawaban_a' => $validation['jawaban_a'],
-                'jawaban_b' => $validation['jawaban_b'],
-                'jawaban_c' => $validation['jawaban_c'],
-                'jawaban_d' => $validation['jawaban_d'],
-                'jawaban_e' => $validation['jawaban_e'],
+                'jarak' => $validation['jarak'],
+                'bobot' => $validation['bobot'],
             ]);
             DB::commit();
 
@@ -99,29 +93,21 @@ class KriteriaJarakController extends Controller
     public function update(Request $request, $id)
     {
         $validation = $request->validate([
-            'jawaban_a' => 'required',
-            'jawaban_b' => 'required',
-            'jawaban_c' => 'required',
-            'jawaban_d' => 'required',
-            'jawaban_e' => 'required',
+            'jarak' => 'required',
+            'bobot' => 'required',
         ]);
         DB::beginTransaction();
         try {
             $data = KriteriaJarak::where('id', $id)->first();
             
             $data->update([
-                'jawaban_a' => $validation['jawaban_a'],
-                'jawaban_b' => $validation['jawaban_b'],
-                'jawaban_c' => $validation['jawaban_c'],
-                'jawaban_d' => $validation['jawaban_d'],
-                'jawaban_e' => $validation['jawaban_e'],
+                'jarak' => $validation['jarak'],
+                'bobot' => $validation['bobot'],
             ]);
             DB::commit();
 
             return redirect()->back()->with('success', 'Berhasil Merubah Data');
         } catch (\Throwable $th) {
-            //throw $th;
-            dd($th);
             DB::rollBack();
             return redirect()->back()->with('errors', $th->getMessage());
 

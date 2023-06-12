@@ -26,46 +26,23 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Nama Kriteria</label>
-                                    <input class="form-control" type="text" name="kriteria"
-                                        placeholder="Masukan kriteria" />
+                                    <label class="form-label">Indikator</label>
+                                    <input class="form-control" type="text" name="indikator"
+                                        placeholder="Masukan Indikator" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Jawaban A</label>
-                                    <input class="form-control" type="text" name="jawaban_a"
-                                        placeholder="Jawaban A" />
+                                    <label class="form-label">keterangan</label>
+                                    <input class="form-control" type="text" name="keterangan"
+                                        placeholder="Masukan keterangan" />
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Jawaban B</label>
-                                    <input class="form-control" type="text" name="jawaban_b"
-                                        placeholder="Jawaban B" />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Jawaban C</label>
-                                    <input class="form-control" type="text" name="jawaban_c"
-                                        placeholder="Jawaban C" />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Jawaban D</label>
-                                    <input class="form-control" type="text" name="jawaban_d"
-                                        placeholder="Jawaban D" />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Jawaban E</label>
-                                    <input class="form-control" type="text" name="jawaban_e"
-                                        placeholder="Jawaban E" />
+                                    <label class="form-label">bobot</label>
+                                    <input class="form-control" type="text" name="bobot"
+                                        placeholder="Masukan bobot" />
                                 </div>
                             </div>
                         </div>
@@ -97,46 +74,23 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Kriteria</label>
-                                    <input class="form-control" type="text" value="{{ $data->kriteria }}" name="kriteria"
-                                        placeholder="Nama kriteria" />
+                                    <label class="form-label">Indikator</label>
+                                    <input class="form-control" type="text" value="{{ $data->indikator }}" name="indikator"
+                                        placeholder="Masukan Indikator" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Jawaban A</label>
-                                    <input class="form-control" type="text" value="{{ $data->jawaban_a }}" name="jawaban_a"
-                                        placeholder="Jawaban A" />
+                                    <label class="form-label">keterangan</label>
+                                    <input class="form-control" type="text" value="{{ $data->keterangan }}" name="keterangan"
+                                        placeholder="Masukan keterangan" />
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Jawaban B</label>
-                                    <input class="form-control" type="text" value="{{ $data->jawaban_b }}" name="jawaban_b"
-                                        placeholder="Jawaban B" />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Jawaban C</label>
-                                    <input class="form-control" type="text" value="{{ $data->jawaban_c }}" name="jawaban_c"
-                                        placeholder="Jawaban C" />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Jawaban D</label>
-                                    <input class="form-control" type="text" value="{{ $data->jawaban_d }}" name="jawaban_d"
-                                        placeholder="Jawaban D" />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Jawaban E</label>
-                                    <input class="form-control" type="text" value="{{ $data->jawaban_e }}" name="jawaban_e"
-                                        placeholder="Jawaban E" />
+                                    <label class="form-label">bobot</label>
+                                    <input class="form-control" type="text" value="{{ $data->bobot }}" name="bobot"
+                                        placeholder="Masukan bobot" />
                                 </div>
                             </div>
                         </div>

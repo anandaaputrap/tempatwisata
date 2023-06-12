@@ -60,9 +60,8 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a class="nav-link menu-title link-nav " href="task.html"><i data-feather="check-square"></i><span>Hasil Survei</span></a>
+                    <a class="nav-link menu-title link-nav " href="{{ route('perhitungan-data.index') }}"><i data-feather="check-square"></i><span>Hasil Survei</span></a>
                     <a class="nav-link menu-title link-nav " href="task.html"><i data-feather="user"></i><span>Pengguna</span></a>
-                    <a class="nav-link menu-title link-nav " href="task.html"><i data-feather="list"></i><span>Kritik & Saran</span></a>
                 </li>
             </ul>
         </div>

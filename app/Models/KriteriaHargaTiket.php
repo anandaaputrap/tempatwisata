@@ -4,18 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class KriteriaHargaTiket extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     public $table = 'kriteria_harga_tiket';
 
     protected $fillable = [
-        'jawaban_a',
-        'jawaban_b',
-        'jawaban_c',
-        'jawaban_d',
-        'jawaban_e'
+        'harga',
+        'bobot',
+        'keterangan'
     ];
 }

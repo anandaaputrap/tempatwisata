@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\KriteriaHargaController;
 use App\Http\Controllers\Admin\KriteriaJarakController;
 use App\Http\Controllers\Admin\KriteriaPelayananController;
 use App\Http\Controllers\Admin\KriteriaSuasanaController;
+use App\Http\Controllers\Admin\ResultController;
 use App\Http\Controllers\Admin\WisataController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\User\PublicController;
@@ -49,6 +50,7 @@ Route::group(['middleware' => 'role:admin'], function () {
             'kriteria-jarak' => KriteriaJarakController::class,
             'kriteria-pelayanan' => KriteriaPelayananController::class,
             'kriteria-suasana' => KriteriaSuasanaController::class,
+            'perhitungan-data' => ResultController::class,
         ]);
     });
 });
@@ -59,6 +61,9 @@ Route::group(['middleware' => 'role:user'], function () {
 
         Route::get('/profile', [PublicController::class, 'profile'])->name('profile');
         Route::post('/edit-profile', [PublicController::class, 'editProfile'])->name('edit.profile');
+
+        Route::get('/survei-wisata/{id}', [PublicController::class, 'survei'])->name('survei.wisata');
+        Route::post('/survei-wisata', [PublicController::class, 'surveiStore'])->name('survei.wisata.post');
 
     });
 });

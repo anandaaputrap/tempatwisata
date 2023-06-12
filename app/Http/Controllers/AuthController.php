@@ -79,6 +79,7 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
+        // dd($request->all());
         $this->validate($request, [
             "email" => 'required|email',
             "password" => 'required|min:8',
@@ -95,6 +96,7 @@ class AuthController extends Controller
         ];
         try {
             Auth::attempt($credential);
+            // dd(Auth::user());
             if (Auth::user()) {
                 if (Auth::user()->getRoleNames()[0] == 'user') {
 
@@ -114,11 +116,11 @@ class AuthController extends Controller
                 }
             }
             else {
-                return redirect()->back()->with('danger', 'Username / Password Salah !');
+                return redirect()->back()->with('error', 'Username / Password Salah !');
             }
         } catch (\Throwable $th) {
-            dd($th);
-            return redirect()->back()->with('danger', $th->getMessage());
+            // dd($th);
+            return redirect()->back()->with('errors', $th->getMessage());
         }
     }
     
@@ -178,9 +180,9 @@ class AuthController extends Controller
 
         $now = Carbon::now();
         if (!$verificationCode) {
-            return redirect()->back()->with('errors', 'Your OTP is not correct');
+            return redirect()->back()->with('error', 'Your OTP is not correct');
         }elseif($verificationCode && $now->isAfter($verificationCode->expire_at)){
-            return redirect()->route('login')->with('errors', 'Your OTP has been expired');
+            return redirect()->route('login')->with('error', 'Your OTP has been expired');
         }
 
         $user = User::whereId(Auth::user()->id)->first();

@@ -16,7 +16,7 @@ class KriteriaPelayananController extends Controller
      */
     public function index()
     {
-        $data = KriteriaPelayanan::first();
+        $data = KriteriaPelayanan::all();
         return view('template.admin.page.pelayanan.index', compact('data'));
     }
 
@@ -39,20 +39,14 @@ class KriteriaPelayananController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            'jawaban_a' => 'required',
-            'jawaban_b' => 'required',
-            'jawaban_c' => 'required',
-            'jawaban_d' => 'required',
-            'jawaban_e' => 'required',
+            'pelayanan' => 'required',
+            'bobot' => 'required'
         ]);
         DB::beginTransaction();
         try {
             KriteriaPelayanan::create([
-                'jawaban_a' => $validation['jawaban_a'],
-                'jawaban_b' => $validation['jawaban_b'],
-                'jawaban_c' => $validation['jawaban_c'],
-                'jawaban_d' => $validation['jawaban_d'],
-                'jawaban_e' => $validation['jawaban_e'],
+                'pelayanan' => $validation['pelayanan'],
+                'bobot' => $validation['bobot']
             ]);
             DB::commit();
 
@@ -99,22 +93,16 @@ class KriteriaPelayananController extends Controller
     public function update(Request $request, $id)
     {
         $validation = $request->validate([
-            'jawaban_a' => 'required',
-            'jawaban_b' => 'required',
-            'jawaban_c' => 'required',
-            'jawaban_d' => 'required',
-            'jawaban_e' => 'required',
+            'pelayanan' => 'required',
+            'bobot' => 'required'
         ]);
         DB::beginTransaction();
         try {
             $data = KriteriaPelayanan::where('id', $id)->first();
             
             $data->update([
-                'jawaban_a' => $validation['jawaban_a'],
-                'jawaban_b' => $validation['jawaban_b'],
-                'jawaban_c' => $validation['jawaban_c'],
-                'jawaban_d' => $validation['jawaban_d'],
-                'jawaban_e' => $validation['jawaban_e'],
+                'pelayanan' => $validation['pelayanan'],
+                'bobot' => $validation['bobot']
             ]);
             DB::commit();
 

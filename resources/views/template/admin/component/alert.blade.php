@@ -12,3 +12,9 @@
         <b>{{ session()->get('success') }}</b><br>
     </div>
 @endif
+
+@if (session()->has('error'))
+    <div class="alert alert-primary dark alert-dismissible fade show" role="alert" id="alert">
+        <b>{{ session()->get('error') }}</b><br>
+    </div>
+@endif

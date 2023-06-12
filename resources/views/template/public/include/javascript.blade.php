@@ -25,35 +25,33 @@
 
 
 <script>
+    $(document).ready(function() {
+        $("a.submit").click(function() {
+            document.getElementById("myForm").submit();
+        });
+    });
 
-$(document).ready(function(){
-    $("a.submit").click(function(){
-        document.getElementById("myForm").submit();
-    }); 
-});
-
-    @if($message = session('success'))
-    Swal.fire(
-      'Good job!',
-      '{{ $message }}',
-      'success'
-    )
+    @if ($message = session('success'))
+        Swal.fire(
+            'Good job!',
+            '{{ $message }}',
+            'success'
+        )
     @endif
 
-    @if($message = session('errors'))
-
+    @if ($message = session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Something went wrong!',
+            text: '{{ $message }}',
+            footer: '<a href="">Why do I have this issue?</a>'
+        })
     @endif
 
-@if ($errors->any())
-    Swal.fire({
-  icon: 'error',
-  title: 'Something went wrong!',
-  text: @foreach ($errors->all() as $error)
-                    {{ $error }}
-             @endforeach,
-  footer: '<a href="">Why do I have this issue?</a>'
-})
-@endif
+    @if ($message = session('errors'))
+    @endif
+
+
 </script>
 
 @stack('js')
