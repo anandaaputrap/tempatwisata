@@ -14,11 +14,12 @@ class KriteriaFasilitas extends Model
 
     protected $fillable = [
         'fasilitas',
-        'status'
+        'status',
+        'indikator',
+        'jawaban_a',
+        'jawaban_b',
+        'jawaban_c',
+        'jawaban_d',
+        'jawaban_e'
     ];
-
-    public function detail(): HasOne
-    {
-        return $this->hasOne(DetailKriteriaFasilitas::class, 'kriteria_fasilitas_id', 'id');
-    }
 }

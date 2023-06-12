@@ -17,11 +17,55 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nama fasilitas</label>
                                     <input class="form-control" type="text" name="fasilitas"
                                         placeholder="Nama fasilitas" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Nama Kriteria</label>
+                                    <input class="form-control" type="text" name="kriteria"
+                                        placeholder="Masukan kriteria" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Jawaban A</label>
+                                    <input class="form-control" type="text" name="jawaban_a"
+                                        placeholder="Jawaban A" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Jawaban B</label>
+                                    <input class="form-control" type="text" name="jawaban_b"
+                                        placeholder="Jawaban B" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Jawaban C</label>
+                                    <input class="form-control" type="text" name="jawaban_c"
+                                        placeholder="Jawaban C" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Jawaban D</label>
+                                    <input class="form-control" type="text" name="jawaban_d"
+                                        placeholder="Jawaban D" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Jawaban E</label>
+                                    <input class="form-control" type="text" name="jawaban_e"
+                                        placeholder="Jawaban E" />
                                 </div>
                             </div>
                         </div>
@@ -44,11 +88,55 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nama fasilitas</label>
                                     <input class="form-control" type="text" value="{{ $data->fasilitas }}" name="fasilitas"
                                         placeholder="Nama fasilitas" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Kriteria</label>
+                                    <input class="form-control" type="text" value="{{ $data->kriteria }}" name="kriteria"
+                                        placeholder="Nama kriteria" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Jawaban A</label>
+                                    <input class="form-control" type="text" value="{{ $data->jawaban_a }}" name="jawaban_a"
+                                        placeholder="Jawaban A" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Jawaban B</label>
+                                    <input class="form-control" type="text" value="{{ $data->jawaban_b }}" name="jawaban_b"
+                                        placeholder="Jawaban B" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Jawaban C</label>
+                                    <input class="form-control" type="text" value="{{ $data->jawaban_c }}" name="jawaban_c"
+                                        placeholder="Jawaban C" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Jawaban D</label>
+                                    <input class="form-control" type="text" value="{{ $data->jawaban_d }}" name="jawaban_d"
+                                        placeholder="Jawaban D" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Jawaban E</label>
+                                    <input class="form-control" type="text" value="{{ $data->jawaban_e }}" name="jawaban_e"
+                                        placeholder="Jawaban E" />
                                 </div>
                             </div>
                         </div>
