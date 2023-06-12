@@ -17,11 +17,32 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nama fasilitas</label>
                                     <input class="form-control" type="text" name="fasilitas"
                                         placeholder="Nama fasilitas" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Indikator</label>
+                                    <input class="form-control" type="text" name="indikator"
+                                        placeholder="Masukan Indikator" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">keterangan</label>
+                                    <input class="form-control" type="text" name="keterangan"
+                                        placeholder="Masukan keterangan" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">bobot</label>
+                                    <input class="form-control" type="text" name="bobot"
+                                        placeholder="Masukan bobot" />
                                 </div>
                             </div>
                         </div>
@@ -44,11 +65,32 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nama fasilitas</label>
                                     <input class="form-control" type="text" value="{{ $data->fasilitas }}" name="fasilitas"
                                         placeholder="Nama fasilitas" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Indikator</label>
+                                    <input class="form-control" type="text" value="{{ $data->indikator }}" name="indikator"
+                                        placeholder="Masukan Indikator" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">keterangan</label>
+                                    <input class="form-control" type="text" value="{{ $data->keterangan }}" name="keterangan"
+                                        placeholder="Masukan keterangan" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">bobot</label>
+                                    <input class="form-control" type="text" value="{{ $data->bobot }}" name="bobot"
+                                        placeholder="Masukan bobot" />
                                 </div>
                             </div>
                         </div>

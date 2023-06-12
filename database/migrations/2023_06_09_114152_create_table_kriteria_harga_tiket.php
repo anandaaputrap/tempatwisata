@@ -15,12 +15,11 @@ class CreateTableKriteriaHargaTiket extends Migration
     {
         Schema::create('kriteria_harga_tiket', function (Blueprint $table) {
             $table->integerIncrements('id');
-            $table->string('jawaban_a');
-            $table->string('jawaban_b');
-            $table->string('jawaban_c');
-            $table->string('jawaban_d');
-            $table->string('jawaban_e');
+            $table->string('harga');
+            $table->integer('bobot');
+            $table->string('keterangan');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

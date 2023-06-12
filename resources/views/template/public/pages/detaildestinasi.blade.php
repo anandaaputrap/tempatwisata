@@ -24,7 +24,7 @@
                 <h2>{{ $data->nama_tempat }}</h2>
             </div>
             <div class="row">
-                <div class="col-lg-10 col-md-12">
+                <div class="col-lg-9 col-md-12">
                     <div class="destination-details-desc mb-30">
                         <div class="row align-items-center">
                             <div class="col-md-6 col-sm-12">
@@ -40,8 +40,8 @@
                         </div>
                         <div class="content mb-20">
                             <h3>{{ $data->alamat }}</h3>
-                            <p style="text-align: justify">
-                               {{ strip_tags($data->deskripsi) }}
+                            <p>
+                               {!! $data->deskripsi !!}
                             </p>
                         </div>
                         <div class="row align-items-center">
@@ -50,16 +50,19 @@
                                     <img src="{{ asset('uploads/' . $data->foto) }}" alt="Demo Image" />
                                 </div>
                             </div>
-                            {{-- <div class="col-md-8 col-sm-12">
+                            <div class="col-md-8 col-sm-12">
                                 <p class="mb-30" style="text-align: justify">
                                     Keindahan air laut adalah salah satu kelebihan Pantai Huntete karena pantai ini juga
                                     menawarkan banyak hal indah lainnya. Seperti pasir putih dan garis pantai yang lebar,
                                     menjadi lokasi yang bagus untuk berjalan di pantai.
                                 </p>
-                            </div> --}}
+                            </div>
                         </div>
                         <hr />
                     </div>
+                </div>
+                <div class="col-lg-3 col-md-12">
+                    <a href="{{ route('survei.wisata', $data->id) }}" class="btn btn-primary">Mulai Survei</a>
                 </div>
                 <div class="col-lg-12 col-md-12">
                     <aside class="widget-area">

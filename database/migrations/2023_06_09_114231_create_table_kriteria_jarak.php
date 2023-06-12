@@ -15,12 +15,10 @@ class CreateTableKriteriaJarak extends Migration
     {
         Schema::create('kriteria_jarak', function (Blueprint $table) {
             $table->integerIncrements('id');
-            $table->string('jawaban_a');
-            $table->string('jawaban_b');
-            $table->string('jawaban_c');
-            $table->string('jawaban_d');
-            $table->string('jawaban_e');
+            $table->string('jarak');
+            $table->integer('bobot');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

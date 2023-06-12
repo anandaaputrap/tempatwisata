@@ -40,11 +40,20 @@ class KriteriaFasilitasController extends Controller
      */
     public function store(Request $request)
     {
+        $validation = $request->validate([
+            'keterangan' => 'required',
+            'bobot' => 'required',
+            'fasilitas' => 'required',
+            'indikator' => 'required',
+        ]);
+
         DB::beginTransaction();
         try {
             KriteriaFasilitas::create([
-                'fasilitas' => $request->fasilitas,
-                'status' => 'Active'
+                'fasilitas' => $validation['fasilitas'],
+                'indikator'  => $validation['indikator'],
+                'keterangan' => $validation['keterangan'],
+                'bobot' => $validation['bobot']
             ]);
             DB::commit();
 
@@ -52,90 +61,12 @@ class KriteriaFasilitasController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
             DB::rollBack();
-            return redirect()->back()->with('errors', $th->getMessage());
-
-        }
-    }
-
-    public function createDetail($id)  
-    {
-        return view('template.admin.page.fasilitas.detail.create_edit', compact('id'));
-    }
-
-    public function storeDetail(Request $request)
-    {
-        $validation = $request->validate([
-            'jawaban_a' => 'required',
-            'jawaban_b' => 'required',
-            'jawaban_c' => 'required',
-            'jawaban_d' => 'required',
-            'jawaban_e' => 'required',
-            'kriteria_fasilitas_id' => 'required',
-        ]);
-        DB::beginTransaction();
-        try {
-            $header = KriteriaFasilitas::where('id', $request->kriteria_fasilitas_id)->first();
-
-            // dd($header);
-            DetailKriteriaFasilitas::create([
-                'jawaban_a' => $validation['jawaban_a'],
-                'jawaban_b' => $validation['jawaban_b'],
-                'jawaban_c' => $validation['jawaban_c'],
-                'jawaban_d' => $validation['jawaban_d'],
-                'jawaban_e' => $validation['jawaban_e'],
-                'kriteria_fasilitas_id' => $header->id
-            ]);
-            DB::commit();
-
-            return redirect()->back()->with('success', 'Berhasil Menambah Data');
-        } catch (\Throwable $th) {
-            //throw $th;
             dd($th);
-            DB::rollBack();
             return redirect()->back()->with('errors', $th->getMessage());
 
         }
-    }
-
-    
-    public function editDetail($id)  
-    {
-        $data = DetailKriteriaFasilitas::where('kriteria_fasilitas_id', $id)->first();
-        return view('template.admin.page.fasilitas.detail.create_edit', compact('data'));
     }
     
-    public function updateDetail(Request $request)
-    {
-        $validation = $request->validate([
-            'jawaban_a' => 'required',
-            'jawaban_b' => 'required',
-            'jawaban_c' => 'required',
-            'jawaban_d' => 'required',
-            'jawaban_e' => 'required',
-        ]);
-        DB::beginTransaction();
-        try {
-            $detail = DetailKriteriaFasilitas::where('id', $request->id)->first();
-            // dd($header);
-           $detail->update([
-                'jawaban_a' => $validation['jawaban_a'],
-                'jawaban_b' => $validation['jawaban_b'],
-                'jawaban_c' => $validation['jawaban_c'],
-                'jawaban_d' => $validation['jawaban_d'],
-                'jawaban_e' => $validation['jawaban_e']
-            ]);
-            DB::commit();
-
-            return redirect()->back()->with('success', 'Berhasil Merubah Data');
-        } catch (\Throwable $th) {
-            //throw $th;
-            dd($th);
-            DB::rollBack();
-            return redirect()->back()->with('errors', $th->getMessage());
-
-        }
-    }
-
     /**
      * Display the specified resource.
      *
@@ -168,12 +99,22 @@ class KriteriaFasilitasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validation = $request->validate([
+            'keterangan' => 'required',
+            'bobot' => 'required',
+            'fasilitas' => 'required',
+            'indikator' => 'required',
+        ]);
+        
         DB::beginTransaction();
         try {
             $data = KriteriaFasilitas::where('id', $id)->first();
 
             $data->update([
-                'fasilitas' => $request->fasilitas,
+                'fasilitas' => $validation['fasilitas'],
+                'indikator'  => $validation['indikator'],
+                'keterangan' => $validation['keterangan'],
+                'bobot' => $validation['bobot']
             ]);
 
             DB::commit();

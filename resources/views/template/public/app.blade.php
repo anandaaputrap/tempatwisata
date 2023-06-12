@@ -15,7 +15,15 @@
         @include('template.public.component.header')
     </header>
 
-    @include('template.admin.component.alert')
+    {{-- @include('template.admin.component.alert') --}}
+    @if ($errors->any())
+        <div class="alert alert-danger dark alert-dismissible fade show" role="alert" id="alert">
+            <b>Terjadi Beberapa Kesalahan.</b><br>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </div>
+    @endif
     @yield('content')
 
     <footer class="footer-area">
@@ -23,6 +31,7 @@
     </footer>
 
     @include('template.public.include.javascript')
+    
 </body>
 
 </html>

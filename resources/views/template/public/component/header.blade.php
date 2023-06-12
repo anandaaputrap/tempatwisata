@@ -25,17 +25,38 @@
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a href="{{ route('home') }}" class="nav-link toggle {{ Request::is('home') ? 'active' : '' }}">Home</a>
+                            <a href="{{ route('home') }}"
+                                class="nav-link toggle {{ Request::is('home') ? 'active' : '' }}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('destinasi') }}"
                                 class="nav-link toggle {{ Request::is('destinasi') ? 'active' : '' }}">Destinasi</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('login') }}" class="btn-secondary">
-                                Login <i class="bx bx-log-in-circle"></i>
-                            </a>
-                        </li>
+                        @if (Auth::check() == true)
+                            <li class="nav-item"><a href="#" class="nav-link toggle">Hi {{ Auth::user()->nama }}<i
+                                        class='bx bxs-chevron-down'></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="{{ route('profile') }}" class="nav-link">Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="blog-style-2.html" class="nav-link">Histori Survei</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <form action="{{ route('postLogout') }}" method="post" id="myForm">
+                                            @csrf
+                                            <a type="submit" class="nav-link submit">Log Out</a>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a href="{{ route('login') }}" class="btn-secondary">
+                                    Login <i class="bx bx-log-in-circle"></i>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </nav>
