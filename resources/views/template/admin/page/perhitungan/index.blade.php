@@ -71,7 +71,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $total = 0;
+                            @endphp
                             @foreach ($data as $item)
+                            @php
+                            $total += (pow($item->harga_tiket, 0.2)) * (pow($item->fasilitas, 0.2)) * (pow($item->jarak, 0.2)) * (pow($item->pelayanan, 0.2)) * (pow($item->suasana, 0.2));
+                            @endphp
                             <tr>
                                 <td>{{ $item->wisata->nama_tempat }}</td>    
                                 <td>{{ $item->harga_tiket }}</td>    
@@ -80,8 +86,7 @@
                                 <td>{{ $item->pelayanan }}</td>    
                                 <td>{{ $item->suasana }}</td>    
                                 <td>   
-                                {{-- {{ (pow($item->harga_tiket, 0.2)) * (pow($item->fasilitas, 0.2)) * (pow($item->jarak, 0.2)) * (pow($item->pelayanan, 0.2)) * (pow($item->suasana, 0.2)) }} --}}
-                                urung
+                                {{ (pow($item->harga_tiket, 0.2)) * (pow($item->fasilitas, 0.2)) * (pow($item->jarak, 0.2)) * (pow($item->pelayanan, 0.2)) * (pow($item->suasana, 0.2)) / $total }}
                                 </td>    
                             </tr> 
                             @endforeach
