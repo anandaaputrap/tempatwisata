@@ -112,6 +112,11 @@ class PublicController extends Controller
 
         }
     }
+
+    public function historySurvey() {
+        
+        return view('template.public.pages.history');
+    }
     
 
 

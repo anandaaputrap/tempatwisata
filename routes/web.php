@@ -66,11 +66,11 @@ Route::group(['middleware' => 'role:user'], function () {
         Route::get('/survei-wisata/{id}', [PublicController::class, 'survei'])->name('survei.wisata');
         Route::post('/survei-wisata', [PublicController::class, 'surveiStore'])->name('survei.wisata.post');
 
+        Route::get('/history', [PublicController::class, 'historySurvey'])->name('history');
+
     });
 });
-Route::get('/public/history', function () {
-    return view('template.public.pages.history');
-})->name('history');
+
 // Route::get('/pub/destinasi', function () {
 //     return view('template.public.pages.destinasi');
 // })->name('destinasi');
