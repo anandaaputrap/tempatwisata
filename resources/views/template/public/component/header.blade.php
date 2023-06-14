@@ -33,14 +33,14 @@
                                 class="nav-link toggle {{ Request::is('destinasi') ? 'active' : '' }}">Destinasi</a>
                         </li>
                         @if (Auth::check() == true)
-                            <li class="nav-item"><a href="#" class="nav-link toggle">Hi {{ Auth::user()->nama }}<i
-                                        class='bx bxs-chevron-down'></i></a>
+                            <li class="nav-item"><a href="#" class="nav-link toggle">Hi
+                                    {{ Auth::user()->nama }}<i class='bx bxs-chevron-down'></i></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
                                         <a href="{{ route('profile') }}" class="nav-link">Profile</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="blog-style-2.html" class="nav-link">Histori Survei</a>
+                                        <a href="{{ route('history') }}" class="nav-link">Histori Survei</a>
                                     </li>
                                     <li class="nav-item">
                                         <form action="{{ route('postLogout') }}" method="post" id="myForm">

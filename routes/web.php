@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('template.public.pages.home');
 })->name('home');
@@ -67,6 +68,9 @@ Route::group(['middleware' => 'role:user'], function () {
 
     });
 });
+Route::get('/public/history', function () {
+    return view('template.public.pages.history');
+})->name('history');
 // Route::get('/pub/destinasi', function () {
 //     return view('template.public.pages.destinasi');
 // })->name('destinasi');
