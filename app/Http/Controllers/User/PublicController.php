@@ -24,7 +24,8 @@ class PublicController extends Controller
 
     public function detail($id) {
         $data = Wisata::where('id', $id)->first();
-        return view('template.public.pages.detaildestinasi', compact('data'));
+        $hitungan = PerhitunganWisata::where('wisata_id', $data->id)->get();
+        return view('template.public.pages.detaildestinasi', compact('data', 'hitungan'));
     }
 
     public function profile() {
@@ -113,9 +114,10 @@ class PublicController extends Controller
         }
     }
 
-    public function historySurvey() {
-        
-        return view('template.public.pages.history');
+    public function historySurvey() 
+    {
+        $data = PerhitunganWisata::where('created_by', Auth::user()->id)->get();    
+        return view('template.public.pages.history', compact('data'));
     }
     
 

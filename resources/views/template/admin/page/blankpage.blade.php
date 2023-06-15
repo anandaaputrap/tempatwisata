@@ -31,6 +31,20 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-6 col-xl-4 col-lg-6">
+                <div class="card o-hidden border-0">
+                    <div class="bg-warning b-r-4 card-body">
+                        <div class="media static-top-widget">
+                            <div class="align-self-center text-center"><i data-feather="shopping-bag"></i></div>
+                            <div class="media-body">
+                                <span class="m-0">Jumlah Perhitungan</span>
+                                <h4 class="mb-0 counter">{{ $hitung->count() }}</h4>
+                                <i class="icon-bg" data-feather="shopping-bag"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-xl-6 xl-100 box-col-12">
                 <div class="card">
                     <div class="cal-date-widget card-body">

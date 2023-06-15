@@ -86,146 +86,44 @@
             <div class="row">
                 <div class="col-lg-8 m-auto">
                     <div class="testimonial-slider owl-carousel">
-                        <div class="slider-item">
-                            <div class="client-img">
-                                <img src="{{ asset('assets2') }}/img/client1.jpg" alt="client-1" />
-                            </div>
-                            <div class="content">
-                                <div class="client-info">
-                                    <h3>Ini Dikasih Nama</h3>
-                                    <span>Ini dikasih nama tempatnya</span>
+                        @foreach ($hitungan as $item)
+                            <div class="slider-item">
+                                <div class="client-img">
+                                    <img src="{{ asset('assets2') }}/img/client1.jpg" alt="client-1" />
                                 </div>
-                                <div class="quote">
-                                    <i class="bx bxs-quote-left"></i>
-                                </div>
-                                <p>
-                                    The Personal Travel Agents Academy is a 12-month training
-                                    programme allowing anyone with no previous travel experience
-                                    to start their own travel business. This is an advanced
-                                    course to help build knowledge in travel and develop sales
-                                    skills.
-                                </p>
-                                <div class="review">
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-item">
-                            <div class="client-img">
-                                <img src="{{ asset('assets2') }}/img/client2.jpg" alt="client-1" />
-                            </div>
-                            <div class="content">
-                                <div class="client-info mb-30">
-                                    <h3>Ini Dikasih Nama</h3>
-                                    <span>Ini dikasih nama tempatnya</span>
-                                </div>
-                                <div class="quote">
-                                    <i class="bx bxs-quote-left"></i>
-                                </div>
-                                <p>
-                                    The Personal Travel Agents Academy is a 12-month training
-                                    programme allowing anyone with no previous travel experience
-                                    to start their own travel business. This is an advanced
-                                    course to help build knowledge in travel and develop sales
-                                    skills.
-                                </p>
-                                <div class="review mt-15">
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
+                                <div class="content">
+                                    <div class="client-info">
+                                        <h3>{{ $item->user->nama }}</h3>
+                                        <span>{{ $item->wisata->nama_tempat }}</span>
+                                    </div>
+                                    <div class="quote">
+                                        <i class="bx bxs-quote-left"></i>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nilai Fasilitas</th>
+                                                    <th>Nilai Harga Tiket</th>
+                                                    <th>Nilai Pelayanan</th>
+                                                    <th>Nilai Jarak</th>
+                                                    <th>Nilai Suasana</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{{ $item->fasilitas }}</td>
+                                                    <td>{{ $item->harga_tiket }}</td>
+                                                    <td>{{ $item->pelayanan }}</td>
+                                                    <td>{{ $item->jarak }}</td>
+                                                    <td>{{ $item->suasana }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="slider-item">
-                            <div class="client-img">
-                                <img src="{{ asset('assets2') }}/img/client3.jpg" alt="client-1" />
-                            </div>
-                            <div class="content">
-                                <div class="client-info mb-30">
-                                    <h3>Ini Dikasih Nama</h3>
-                                    <span>Ini dikasih nama tempatnya</span>
-                                </div>
-                                <div class="quote">
-                                    <i class="bx bxs-quote-left"></i>
-                                </div>
-                                <p>
-                                    The Personal Travel Agents Academy is a 12-month training
-                                    programme allowing anyone with no previous travel experience
-                                    to start their own travel business. This is an advanced
-                                    course to help build knowledge in travel and develop sales
-                                    skills.
-                                </p>
-                                <div class="review mt-15">
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-item">
-                            <div class="client-img">
-                                <img src="{{ asset('assets2') }}/img/client4.jpg" alt="client-1" />
-                            </div>
-                            <div class="content">
-                                <div class="client-info mb-30">
-                                    <h3>Ini Dikasih Nama</h3>
-                                    <span>Ini dikasih nama tempatnya</span>
-                                </div>
-                                <div class="quote">
-                                    <i class="bx bxs-quote-left"></i>
-                                </div>
-                                <p>
-                                    The Personal Travel Agents Academy is a 12-month training
-                                    programme allowing anyone with no previous travel experience
-                                    to start their own travel business. This is an advanced
-                                    course to help build knowledge in travel and develop sales
-                                    skills.
-                                </p>
-                                <div class="review mt-15">
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-item">
-                            <div class="client-img">
-                                <img src="{{ asset('assets2') }}/img/client5.jpg" alt="client-1" />
-                            </div>
-                            <div class="content">
-                                <div class="client-info mb-30">
-                                    <h3>Ini Dikasih Nama</h3>
-                                    <span>Ini dikasih nama tempatnya</span>
-                                </div>
-                                <div class="quote">
-                                    <i class="bx bxs-quote-left"></i>
-                                </div>
-                                <p>
-                                    The Personal Travel Agents Academy is a 12-month training
-                                    programme allowing anyone with no previous travel experience
-                                    to start their own travel business. This is an advanced
-                                    course to help build knowledge in travel and develop sales
-                                    skills.
-                                </p>
-                                <div class="review mt-15">
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

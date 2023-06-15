@@ -8,7 +8,7 @@
       <!-- Bootstrap js-->
       <script src="{{ asset('assets') }}/js/bootstrap/popper.min.js"></script>
       <script src="{{ asset('assets') }}/js/bootstrap/bootstrap.min.js"></script>
-<!-- Plugins JS start-->
+      <!-- Plugins JS start-->
       <script src="{{ asset('assets') }}/js/chart/chartist/chartist.js"></script>
       <script src="{{ asset('assets') }}/js/chart/chartist/chartist-plugin-tooltip.js"></script>
       <script src="{{ asset('assets') }}/js/chart/knob/knob.min.js"></script>

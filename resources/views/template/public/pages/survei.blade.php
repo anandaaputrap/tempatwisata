@@ -56,13 +56,21 @@
                                                         Harga Tiket :
                                                     </th>
                                                     <td colspan="4">
-                                                        <div class="form-control">
+                                                        <div class="row">
                                                             @foreach ($kriteriaTiket as $item)
-                                                                <input class="form-check-input" value="{{ $item->bobot }}"
-                                                                    type="radio" name="harga_tiket" id="tiketJawaban2">
-                                                                <label class="form-check-label" for="tiketJawaban2">
-                                                                    {{ $item->harga }}
-                                                                </label>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input"
+                                                                                value="{{ $item->bobot }}" type="radio"
+                                                                                name="harga_tiket" id="tiketJawaban2">
+                                                                            <label class="form-check-label"
+                                                                                for="tiketJawaban2">
+                                                                                {{ $item->harga }}
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             @endforeach
                                                         </div>
                                                     </td>
@@ -72,13 +80,21 @@
                                                         Jarak :
                                                     </th>
                                                     <td colspan="4">
-                                                        <div class="form-control">
+                                                        <div class="row">
                                                             @foreach ($kriteriaJarak as $item)
-                                                                <input class="form-check-input" value="{{ $item->bobot }}"
-                                                                    type="radio" name="harga_tiket" id="tiketJawaban2">
-                                                                <label class="form-check-label" for="tiketJawaban2">
-                                                                    {{ $item->jarak }}
-                                                                </label>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input"
+                                                                                value="{{ $item->bobot }}" type="radio"
+                                                                                name="harga_tiket" id="tiketJawaban2">
+                                                                            <label class="form-check-label"
+                                                                                for="tiketJawaban2">
+                                                                                {{ $item->jarak }}
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             @endforeach
                                                         </div>
                                                     </td>
@@ -88,13 +104,21 @@
                                                         Pelayanan :
                                                     </th>
                                                     <td colspan="4">
-                                                        <div class="form-control">
+                                                        <div class="row">
                                                             @foreach ($kriteriaPelayanan as $item)
-                                                                <input class="form-check-input" value="{{ $item->bobot }}"
-                                                                    type="radio" name="harga_tiket" id="tiketJawaban2">
-                                                                <label class="form-check-label" for="tiketJawaban2">
-                                                                    {{ $item->pelayanan }}
-                                                                </label>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input"
+                                                                                value="{{ $item->bobot }}" type="radio"
+                                                                                name="harga_tiket" id="tiketJawaban2">
+                                                                            <label class="form-check-label"
+                                                                                for="tiketJawaban2">
+                                                                                {{ $item->pelayanan }}
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             @endforeach
                                                         </div>
                                                     </td>
@@ -104,13 +128,21 @@
                                                         Suasana :
                                                     </th>
                                                     <td colspan="4">
-                                                        <div class="form-control">
+                                                        <div class="row">
                                                             @foreach ($kriteriaSuasana as $item)
-                                                                <input class="form-check-input" value="{{ $item->bobot }}"
-                                                                    type="radio" name="harga_tiket" id="tiketJawaban2">
-                                                                <label class="form-check-label" for="tiketJawaban2">
-                                                                    {{ $item->suasana }}
-                                                                </label>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input"
+                                                                                value="{{ $item->bobot }}" type="radio"
+                                                                                name="harga_tiket" id="tiketJawaban2">
+                                                                            <label class="form-check-label"
+                                                                                for="tiketJawaban2">
+                                                                                {{ $item->suasana }}
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             @endforeach
                                                         </div>
                                                     </td>
@@ -120,13 +152,22 @@
                                                         Fasilitas :
                                                     </th>
                                                     <td colspan="4">
-                                                        <div class="form-control">
+                                                        <div class="row">
                                                             @foreach ($kriteriaFasilitas as $item)
-                                                                <input class="form-check-input" value="{{ $item->bobot }}"
-                                                                    type="radio" name="harga_tiket" id="tiketJawaban2">
-                                                                <label class="form-check-label" for="tiketJawaban2">
-                                                                    {{ $item->keterangan }}
-                                                                </label>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input"
+                                                                                value="{{ $item->bobot }}"
+                                                                                type="radio" name="harga_tiket"
+                                                                                id="tiketJawaban2">
+                                                                            <label class="form-check-label"
+                                                                                for="tiketJawaban2">
+                                                                                {{ $item->keterangan }}
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             @endforeach
                                                         </div>
                                                     </td>

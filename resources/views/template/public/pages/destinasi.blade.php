@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="bg-image">
-            <img src="{{ asset('assets2') }}/img/page-title-area/destinations.jpg" alt="Demo Image" />
+            <img src="{{ asset('assets2') }}/img/page-title-area/destinations.jpg" alt="Demo Image"/>
         </div>
     </div>
 
@@ -32,7 +32,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="item-single mb-30">
                             <div class="image">
-                                <img src="{{ asset('uploads/' . $item->foto) }}" alt="Demo Image" />
+                                <img src="{{ asset('uploads/' . $item->foto) }}" alt="Demo Image" style="width: auto;height:252px;" />
                             </div>
                             <div class="content">
                                 <span class="location"><i class="bx bx-map"></i>{{ $item->alamat }}</span>
@@ -41,11 +41,11 @@
                                 </h3>
                                 <div class="review">
                                     <i class="bx bx-smile"></i>
-                                    <span>9</span>
-                                    <span>Reviewer</span>
+                                    <span>{{ $item->hitung->count() }}</span>
+                                    <span>Total Survei</span>
                                 </div>
                                 <p>
-                                    {{ strip_tags(Str::limit($item->deskripsi, 30)) }}
+                                    {!! Str::words($item->deskripsi , 20, ' ...') !!}
                                 </p>
                                 <hr />
                             </div>

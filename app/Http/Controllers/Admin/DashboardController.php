@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\PerhitunganWisata;
 
 class DashboardController extends Controller
 {
@@ -13,6 +14,7 @@ class DashboardController extends Controller
         return view('template.admin.page.blankpage', [
         'users' => User::all(),
         'wisata' => Wisata::all(),
+        'hitung' => PerhitunganWisata::all(),
         ]);
     
     }
