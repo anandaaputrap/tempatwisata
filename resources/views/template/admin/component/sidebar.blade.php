@@ -27,8 +27,8 @@
         <div id="mainnav">
             <ul class="nav-menu custom-scrollbar">
                 <li class="back-btn">
-                    <div class="mobile-back text-end"><span>Back</span><i
-                            class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                    <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
+                            aria-hidden="true"></i></div>
                 </li>
                 <li class="sidebar-main-title">
                     <div>
@@ -48,7 +48,8 @@
                             data-feather="database"></i><span>Kriteria</span></a>
                     <ul class="nav-submenu menu-content" style="display: none;">
                         <li><a href="{{ route('kriteria-fasilitas.index') }}" class="">Kriteria Fasilitas</a></li>
-                        <li><a href="{{ route('kriteria-harga-tiket.index') }}" class="">Kriteria Harga Tiket</a></li>
+                        <li><a href="{{ route('kriteria-harga-tiket.index') }}" class="">Kriteria Harga Tiket</a>
+                        </li>
                         <li><a href="{{ route('kriteria-jarak.index') }}" class="">Kriteria Jarak</a></li>
                         <li><a href="{{ route('kriteria-pelayanan.index') }}" class="">Kriteria Pelayanan</a></li>
                         <li><a href="{{ route('kriteria-suasana.index') }}" class="">Kriteria Suasana</a></li>
@@ -60,8 +61,10 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a class="nav-link menu-title link-nav " href="{{ route('perhitungan-data.index') }}"><i data-feather="check-square"></i><span>Hasil Survei</span></a>
-                    <a class="nav-link menu-title link-nav " href="task.html"><i data-feather="user"></i><span>Pengguna</span></a>
+                    <a class="nav-link menu-title link-nav " href="{{ route('perhitungan-data.index') }}"><i
+                            data-feather="check-square"></i><span>Hasil Survei</span></a>
+                    <a class="nav-link menu-title link-nav " href="{{ route('pelanggan') }}"><i
+                            data-feather="user"></i><span>Pengguna</span></a>
                 </li>
             </ul>
         </div>

@@ -88,9 +88,9 @@
                     <div class="testimonial-slider owl-carousel">
                         @foreach ($hitungan as $item)
                             <div class="slider-item">
-                                <div class="client-img">
-                                    <img src="{{ asset('assets2') }}/img/client1.jpg" alt="client-1" />
-                                </div>
+                                {{-- <div class="client-img">
+                                    <img src="{{ asset('assets2') }}/img/logowakatobi.png" alt="client-1" width="20" />
+                                </div> --}}
                                 <div class="content">
                                     <div class="client-info">
                                         <h3>{{ $item->user->nama }}</h3>

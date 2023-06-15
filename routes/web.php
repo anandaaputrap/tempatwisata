@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\KriteriaHargaController;
 use App\Http\Controllers\Admin\KriteriaJarakController;
 use App\Http\Controllers\Admin\KriteriaPelayananController;
 use App\Http\Controllers\Admin\KriteriaSuasanaController;
+use App\Http\Controllers\Admin\PelangganController;
 use App\Http\Controllers\Admin\ResultController;
 use App\Http\Controllers\Admin\WisataController;
 use App\Http\Controllers\AuthController;
@@ -53,6 +54,7 @@ Route::group(['middleware' => 'role:admin'], function () {
             'kriteria-suasana' => KriteriaSuasanaController::class,
             'perhitungan-data' => ResultController::class,
         ]);
+        Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan');
     });
 });
 

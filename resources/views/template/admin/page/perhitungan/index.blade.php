@@ -74,7 +74,7 @@
                             @php
                             $total = 0;
                             @endphp
-                            @foreach ($data as $item)
+                            @foreach ($data->sortBy($total) as $item)
                             @php
                             $total += (pow($item->harga_tiket, 0.2)) * (pow($item->fasilitas, 0.2)) * (pow($item->jarak, 0.2)) * (pow($item->pelayanan, 0.2)) * (pow($item->suasana, 0.2));
                             @endphp

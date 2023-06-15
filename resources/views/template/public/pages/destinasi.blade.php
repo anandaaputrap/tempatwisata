@@ -103,157 +103,113 @@
                 <div class="col-md-8 m-auto">
                     <div class="filter-group">
                         <ul id="control" class="list-control">
-                            <li class="active" data-filter="all">All</li>
-                            <li data-filter="1">Fasilitas Lengkap</li>
-                            <li data-filter="2">Rekomendasi</li>
+                            <li data-filter="1" class="active">Fasilitas Lengkap</li>
+                            <li data-filter="2">Harga Tiket</li>
+                            <li data-filter="3">Jarak</li>
+                            <li data-filter="4">Suasana</li>
+                            <li data-filter="5">Pelayanan</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="row filtr-container">
-                <div class="col-lg-4 col-md-6 filtr-item" data-category="1" data-sort="value">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="{{ asset('assets2') }}/img/pulauanano.jpg" alt="Demo Image" />
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class="bx bx-map"></i>Desa Kulati, Kec.Tomia</span>
-                            <h3>
-                                <a href="destination-details.html">Pantai Huntete</a>
-                            </h3>
-                            <div class="review">
-                                <i class="bx bx-smile"></i>
-                                <span>8.5</span>
-                                <span>Superb</span>
+                @foreach ($data1 as $item)
+                    <div class="col-lg-4 col-md-6 filtr-item" data-category="1" data-sort="value">
+                        <div class="item-single mb-30">
+                            <div class="image">
+                                <img src="{{ asset('uploads/' . $item->wisata->foto) }}" alt="Demo Image" style="width: auto;height:252px;" />
                             </div>
-                            <p>
-                                Desiran ombak saling memburu dan terhempas pasir pantai.
-                            </p>
-                            <hr />
-                        </div>
-                        <div class="spacer"></div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filtr-item" data-category="2, 1" data-sort="value">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="{{ asset('assets2') }}/img/pulauanano.jpg" alt="Demo Image" />
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class="bx bx-map"></i>Kecamatan Tomia</span>
-                            <h3>
-                                <a href="destination-details.html">Pantai Anano</a>
-                            </h3>
-                            <div class="review">
-                                <i class="bx bx-smile"></i>
-                                <span>9</span>
-                                <span>Superb</span>
+                            <div class="content">
+                                <span class="location"><i class="bx bx-map"></i>{{ $item->wisata->alamat }}</span>
+                                <h3>
+                                    <a href="{{ route('destinasi.detail', $item->wisata_id) }}">{{ $item->wisata->nama_tempat }}</a>
+                                </h3>
+                                <p>
+                                    {!! Str::words($item->wisata->deskripsi , 20, ' ...') !!}
+                                </p>
+                                <hr />
                             </div>
-                            <p>
-                                Pantai yang sangat indah dengan pasir putih yang halus.
-                            </p>
-                            <hr />
                         </div>
-                        <div class="spacer"></div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filtr-item" data-category="2" data-sort="value">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="{{ asset('assets2') }}/img/pulauanano.jpg" alt="Demo Image" />
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class="bx bx-map"></i>Numana, Kec.Wangi-Wangi</span>
-                            <h3>
-                                <a href="destination-details.html">Onemohute Wakatobi Dive</a>
-                            </h3>
-                            <div class="review">
-                                <i class="bx bx-smile"></i>
-                                <span>7.5</span>
-                                <span>Superb</span>
+                @endforeach
+                @foreach ($data2 as $item)
+                    <div class="col-lg-4 col-md-6 filtr-item" data-category="2" data-sort="value">
+                        <div class="item-single mb-30">
+                            <div class="image">
+                                <img src="{{ asset('uploads/' . $item->wisata->foto) }}" alt="Demo Image" style="width: auto;height:252px;" />
                             </div>
-                            <p>
-                                Menyelami keindahan bawah laut Onemohute yang spektakuler.
-                            </p>
-                            <hr />
-                        </div>
-                        <div class="spacer"></div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filtr-item" data-category="2, 3" data-sort="value">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="{{ asset('assets2') }}/img/destination4.jpg" alt="Demo Image" />
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class="bx bx-map"></i>Santorini, Oia, Greece</span>
-                            <h3>
-                                <a href="destination-details.html">Santorini, Oia, Greece</a>
-                            </h3>
-                            <div class="review">
-                                <i class="bx bx-smile"></i>
-                                <span>9</span>
-                                <span>Superb</span>
+                            <div class="content">
+                                <span class="location"><i class="bx bx-map"></i>{{ $item->wisata->alamat }}</span>
+                                <h3>
+                                    <a href="{{ route('destinasi.detail', $item->wisata_id) }}">{{ $item->wisata->nama_tempat }}</a>
+                                </h3>
+                                <p>
+                                    {!! Str::words($item->wisata->deskripsi , 20, ' ...') !!}
+                                </p>
+                                <hr />
                             </div>
-                            <p>
-                                A wonderful little cottage right on the seashore - perfect for
-                                exploring.
-                            </p>
-                            <hr />
                         </div>
-                        <div class="spacer"></div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filtr-item" data-category="1, 3" data-sort="value">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="{{ asset('assets2') }}/img/destination5.jpg" alt="Demo Image" />
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class="bx bx-map"></i>Oia, Greece</span>
-                            <h3>
-                                <a href="destination-details.html">Greek Cottage, Greece</a>
-                            </h3>
-                            <div class="review">
-                                <i class="bx bx-smile"></i>
-                                <span>8.5</span>
-                                <span>Superb</span>
+                @endforeach
+                @foreach ($data3 as $item)
+                    <div class="col-lg-4 col-md-6 filtr-item" data-category="3" data-sort="value">
+                        <div class="item-single mb-30">
+                            <div class="image">
+                                <img src="{{ asset('uploads/' . $item->wisata->foto) }}" alt="Demo Image" style="width: auto;height:252px;" />
                             </div>
-                            <p>
-                                A wonderful little cottage right on the seashore - perfect for
-                                exploring.
-                            </p>
-                            <hr />
-                        </div>
-                        <div class="spacer"></div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filtr-item" data-category="3, 1" data-sort="value">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="{{ asset('assets2') }}/img/destination6.jpg" alt="Demo Image" />
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class="bx bx-map"></i>Venice, Italy</span>
-                            <h3>
-                                <a href="destination-details.html">Metropolitan City</a>
-                            </h3>
-                            <div class="review">
-                                <i class="bx bx-smile"></i>
-                                <span>8.5</span>
-                                <span>Superb</span>
+                            <div class="content">
+                                <span class="location"><i class="bx bx-map"></i>{{ $item->wisata->alamat }}</span>
+                                <h3>
+                                    <a href="{{ route('destinasi.detail', $item->wisata_id) }}">{{ $item->wisata->nama_tempat }}</a>
+                                </h3>
+                                <p>
+                                    {!! Str::words($item->wisata->deskripsi , 20, ' ...') !!}
+                                </p>
+                                <hr />
                             </div>
-                            <p>
-                                A wonderful little cottage right on the seashore - perfect for
-                                exploring.
-                            </p>
-                            <hr />
                         </div>
-                        <div class="spacer"></div>
                     </div>
-                </div>
+                @endforeach
+                @foreach ($data4 as $item)
+                    <div class="col-lg-4 col-md-6 filtr-item" data-category="4" data-sort="value">
+                        <div class="item-single mb-30">
+                            <div class="image">
+                                <img src="{{ asset('uploads/' . $item->wisata->foto) }}" alt="Demo Image" style="width: auto;height:252px;" />
+                            </div>
+                            <div class="content">
+                                <span class="location"><i class="bx bx-map"></i>{{ $item->wisata->alamat }}</span>
+                                <h3>
+                                    <a href="{{ route('destinasi.detail', $item->wisata_id) }}">{{ $item->wisata->nama_tempat }}</a>
+                                </h3>
+                                <p>
+                                    {!! Str::words($item->wisata->deskripsi , 20, ' ...') !!}
+                                </p>
+                                <hr />
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                @foreach ($data5 as $item)
+                    <div class="col-lg-4 col-md-6 filtr-item" data-category="5" data-sort="value">
+                        <div class="item-single mb-30">
+                            <div class="image">
+                                <img src="{{ asset('uploads/' . $item->wisata->foto) }}" alt="Demo Image" style="width: auto;height:252px;" />
+                            </div>
+                            <div class="content">
+                                <span class="location"><i class="bx bx-map"></i>{{ $item->wisata->alamat }}</span>
+                                <h3>
+                                    <a href="{{ route('destinasi.detail', $item->wisata_id) }}">{{ $item->wisata->nama_tempat }}</a>
+                                </h3>
+                                <p>
+                                    {!! Str::words($item->wisata->deskripsi , 20, ' ...') !!}
+                                </p>
+                                <hr />
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="pagination text-center">
                         <span class="page-numbers current" aria-current="page">1</span>
@@ -262,7 +218,7 @@
                         <a href="#" class="page-numbers">Next</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 @endsection
