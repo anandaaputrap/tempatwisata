@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="bg-image">
-            <img src="{{ asset('assets2') }}/img/page-title-area/destinations.jpg" alt="Demo Image" />
+            <img src="{{ asset('assets2') }}/img/page-title-area/destinations.jpg" alt="Demo Image"/>
         </div>
     </div>
 
@@ -29,29 +29,28 @@
             </div>
             <div class="row">
                 @foreach ($data as $item)
-                <div class="col-lg-4 col-md-6">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="{{ asset('uploads/' . $item->foto) }}" alt="Demo Image" />
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class="bx bx-map"></i>{{ $item->alamat }}</span>
-                            <h3>
-                                <a href="{{ route('destinasi.detail', $item->id) }}">{{ $item->nama_tempat }}</a>
-                            </h3>
-                            <div class="review">
-                                <i class="bx bx-smile"></i>
-                                <span>9</span>
-                                <span>Reviewer</span>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="item-single mb-30">
+                            <div class="image">
+                                <img src="{{ asset('uploads/' . $item->foto) }}" alt="Demo Image" style="width: auto;height:252px;" />
                             </div>
-                            <p>
-                                Desiran ombak saling memburu dan terhempas pasir pantai. Riuh angin silih berganti bertiup
-                                mengibaskan apa saja yang dilewatinya.
-                            </p>
-                            <hr />
+                            <div class="content">
+                                <span class="location"><i class="bx bx-map"></i>{{ $item->alamat }}</span>
+                                <h3>
+                                    <a href="{{ route('destinasi.detail', $item->id) }}">{{ $item->nama_tempat }}</a>
+                                </h3>
+                                <div class="review">
+                                    <i class="bx bx-smile"></i>
+                                    <span>{{ $item->hitung->count() }}</span>
+                                    <span>Total Survei</span>
+                                </div>
+                                <p>
+                                    {!! Str::words($item->deskripsi , 20, ' ...') !!}
+                                </p>
+                                <hr />
+                            </div>
                         </div>
                     </div>
-                </div>                 
                 @endforeach
             </div>
         </div>

@@ -8,7 +8,8 @@
                 <ul>
                     <li class="item"><a href="index.html">Home</a></li>
                     <li class="item">
-                        <a href="{{ route('destinasi.detail', $data->id) }}"><i class="bx bx-chevrons-right"></i>Detail Destinasi</a>
+                        <a href="{{ route('destinasi.detail', $data->id) }}"><i class="bx bx-chevrons-right"></i>Detail
+                            Destinasi</a>
                     </li>
                 </ul>
             </div>
@@ -41,7 +42,7 @@
                         <div class="content mb-20">
                             <h3>{{ $data->alamat }}</h3>
                             <p>
-                               {!! $data->deskripsi !!}
+                                {!! $data->deskripsi !!}
                             </p>
                         </div>
                         <div class="row align-items-center">
@@ -50,13 +51,6 @@
                                     <img src="{{ asset('uploads/' . $data->foto) }}" alt="Demo Image" />
                                 </div>
                             </div>
-                            <div class="col-md-8 col-sm-12">
-                                <p class="mb-30" style="text-align: justify">
-                                    Keindahan air laut adalah salah satu kelebihan Pantai Huntete karena pantai ini juga
-                                    menawarkan banyak hal indah lainnya. Seperti pasir putih dan garis pantai yang lebar,
-                                    menjadi lokasi yang bagus untuk berjalan di pantai.
-                                </p>
-                            </div>
                         </div>
                         <hr />
                     </div>
@@ -64,7 +58,8 @@
                 <div class="col-lg-3 col-md-12">
                     <a href="{{ route('survei.wisata', $data->id) }}" class="btn btn-primary">Mulai Survei</a>
                 </div>
-                <div class="col-lg-12 col-md-12">
+
+                {{-- <div class="col-lg-12 col-md-12">
                     <aside class="widget-area">
                         <div class="widget widget-video mb-30">
                             <div class="video-image">
@@ -75,8 +70,66 @@
                             </div>
                         </div>
                     </aside>
+                </div> --}}
+            </div>
+        </div>
+    </section>
+    <section id="testimonial" class="testimonial-section ptb-100 bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Terimakasih Atas Penilaiannya</h2>
+                <p>
+                    Kami harap dengan penilaian anda dapat membuat tempat wisata di Wakatobi semakin berkembang
+                    semakin baik kedepannya.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 m-auto">
+                    <div class="testimonial-slider owl-carousel">
+                        @foreach ($hitungan as $item)
+                            <div class="slider-item">
+                                <div class="client-img">
+                                    <img src="{{ asset('assets2') }}/img/client1.jpg" alt="client-1" />
+                                </div>
+                                <div class="content">
+                                    <div class="client-info">
+                                        <h3>{{ $item->user->nama }}</h3>
+                                        <span>{{ $item->wisata->nama_tempat }}</span>
+                                    </div>
+                                    <div class="quote">
+                                        <i class="bx bxs-quote-left"></i>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nilai Fasilitas</th>
+                                                    <th>Nilai Harga Tiket</th>
+                                                    <th>Nilai Pelayanan</th>
+                                                    <th>Nilai Jarak</th>
+                                                    <th>Nilai Suasana</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{{ $item->fasilitas }}</td>
+                                                    <td>{{ $item->harga_tiket }}</td>
+                                                    <td>{{ $item->pelayanan }}</td>
+                                                    <td>{{ $item->jarak }}</td>
+                                                    <td>{{ $item->suasana }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="shape">
+            <img src="{{ asset('assets2') }}/img/shape1.png" alt="Background Shape" />
         </div>
     </section>
 @endsection
