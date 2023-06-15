@@ -87,7 +87,7 @@
                                                                         <div class="form-check">
                                                                             <input class="form-check-input"
                                                                                 value="{{ $item->bobot }}" type="radio"
-                                                                                name="harga_tiket" id="tiketJawaban2">
+                                                                                name="jarak" id="tiketJawaban2">
                                                                             <label class="form-check-label"
                                                                                 for="tiketJawaban2">
                                                                                 {{ $item->jarak }}
@@ -111,7 +111,7 @@
                                                                         <div class="form-check">
                                                                             <input class="form-check-input"
                                                                                 value="{{ $item->bobot }}" type="radio"
-                                                                                name="harga_tiket" id="tiketJawaban2">
+                                                                                name="pelayanan" id="tiketJawaban2">
                                                                             <label class="form-check-label"
                                                                                 for="tiketJawaban2">
                                                                                 {{ $item->pelayanan }}
@@ -135,7 +135,7 @@
                                                                         <div class="form-check">
                                                                             <input class="form-check-input"
                                                                                 value="{{ $item->bobot }}" type="radio"
-                                                                                name="harga_tiket" id="tiketJawaban2">
+                                                                                name="suasana" id="tiketJawaban2">
                                                                             <label class="form-check-label"
                                                                                 for="tiketJawaban2">
                                                                                 {{ $item->suasana }}
@@ -159,7 +159,7 @@
                                                                         <div class="form-check">
                                                                             <input class="form-check-input"
                                                                                 value="{{ $item->bobot }}"
-                                                                                type="radio" name="harga_tiket"
+                                                                                type="radio" name="fasilitas"
                                                                                 id="tiketJawaban2">
                                                                             <label class="form-check-label"
                                                                                 for="tiketJawaban2">

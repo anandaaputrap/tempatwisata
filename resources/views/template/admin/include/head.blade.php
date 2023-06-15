@@ -28,7 +28,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/date-picker.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/prism.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vector-map.css">
-<link rel="stylesheet" type="text/css" href=".{{ asset('assets') }}/css/datatables.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/datatables.css">
 
 <!-- Plugins css Ends-->
 <!-- Bootstrap css-->

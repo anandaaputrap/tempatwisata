@@ -18,16 +18,18 @@
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th>Status Akun</th>
+                                <th>Role</th>
                                 <th>Jumlah Survei</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $item)
                                 <tr>
-                                    <td>{{ $item->user->nama }}</td>
-                                    <td>{{ $item->user->email }}</td>
-                                    <td>{{ $item->user->status }}</td>
-                                    <td></td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->status }}</td>
+                                    <td>{{ $item->getRoleNames()[0] }}</td>
+                                    <td>{{ $item->hitungWisata->count() }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

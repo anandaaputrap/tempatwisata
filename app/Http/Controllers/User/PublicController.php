@@ -18,8 +18,15 @@ use Illuminate\Support\Facades\DB;
 class PublicController extends Controller
 {
     public function index() {
+        DB::statement("SET SQL_MODE=''");
         $data = Wisata::all();
-        return view('template.public.pages.destinasi', compact('data'));       
+        $data1 = PerhitunganWisata::where('fasilitas', '5')->orwhere('fasilitas', '4')->groupBy('wisata_id')->get();
+        $data2 = PerhitunganWisata::where('harga_tiket', '5')->orwhere('harga_tiket', '4')->groupBy('wisata_id')->get();
+        $data3 = PerhitunganWisata::where('jarak', '5')->orwhere('jarak', '4')->groupBy('wisata_id')->get();
+        $data4 = PerhitunganWisata::where('suasana', '5')->orwhere('suasana', '4')->groupBy('wisata_id')->get();
+        $data5 = PerhitunganWisata::where('pelayanan', '5')->orwhere('pelayanan', '4')->groupBy('wisata_id')->get();
+    
+        return view('template.public.pages.destinasi', compact(['data', 'data1', 'data2', 'data3', 'data4', 'data5']));       
     }
 
     public function detail($id) {
