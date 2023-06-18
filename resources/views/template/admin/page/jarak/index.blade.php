@@ -9,31 +9,42 @@
                         <h5>Kriteria Jarak</h5>
                     </div>
                     <div class="col-3 text-end">
-                        <a href="{{ route('kriteria-jarak.create') }}" class="btn btn-primary" target="_blank"><span class="fa fa-plus"></span></a>
+                        <a href="{{ route('kriteria-jarak.create') }}" class="btn btn-primary" target="_blank"><span
+                                class="fa fa-plus"></span></a>
                     </div>
                 </div>
             </div>
-            @if ($data != null)  
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="display" id="basic-1">
-                        <thead>
-                            <tr>
-                                <th>Jarak</th>
-                                <th>Bobot</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($data as $item)
+            @if ($data != null)
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="display" id="basic-1">
+                            <thead>
                                 <tr>
-                                    <td>{{ $item->jarak }}</td>
-                                    <td>{{ $item->bobot }}</td>
+                                    <th>Jarak</th>
+                                    <th>Bobot</th>
+                                    <th>Action</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($data as $item)
+                                    <tr>
+                                        <td>{{ $item->jarak }}</td>
+                                        <td>{{ $item->bobot }}</td>
+                                        <td>
+                                            <div class="col-auto m-0 row">
+                                                <div class="col-auto g-1">
+                                                    <a href="{{ route('kriteria-jarak.edit', $item->id) }}"
+                                                        class="btn btn-warning" target="_blank"><span
+                                                            class="fa fa-pencil"></span></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
             @endif
         </div>
     </div>

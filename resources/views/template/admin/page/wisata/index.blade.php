@@ -21,35 +21,37 @@
                         </thead>
                         <tbody>
                             @foreach ($data as $item)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->nama_tempat }}</td>
-                                <td>
-                                    <img src="{{ asset('uploads/' . $item->foto) }}" alt=""
-                                    style="width: auto;height:120px;">
-                                </td>
-                                <td>{{ $item->alamat }}</td>
-                                <td>{{ status($item->status) }}</td>
-                                <td>
-                                    <div class="col-auto m-0 row">
-                                        <div class="col-auto g-1">
-                                            <a href="{{ route('wisata.edit', $item->id) }}"
-                                                class="btn btn-warning" target="_blank"><span class="fa fa-pencil"></span></a>
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->nama_tempat }}</td>
+                                    <td>
+                                        <img src="{{ asset('uploads/' . $item->foto) }}" alt=""
+                                            style="width: auto;height:120px;">
+                                    </td>
+                                    <td>{{ $item->alamat }}</td>
+                                    <td>{{ status($item->status) }}</td>
+                                    <td>
+                                        <div class="col-auto m-0 row">
+                                            <div class="col-auto g-1">
+                                                <a href="{{ route('wisata.edit', $item->id) }}" class="btn btn-warning"
+                                                    target="_blank"><span class="fa fa-pencil"></span></a>
+                                            </div>
+                                            <div class="col-auto g-1">
+                                                <form action="{{ route('wisata.destroy', $item->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    @if ($item->status == 'Active')
+                                                        <button type="submit" class="btn btn-primary"><span
+                                                                class="fa fa-toggle-on"></span></button>
+                                                    @else
+                                                        <button type="submit" class="btn btn-danger"><span
+                                                                class="fa fa-toggle-off"></span></button>
+                                                    @endif
+                                                </form>
+                                            </div>
                                         </div>
-                                        <div class="col-auto g-1">
-                                            <form action="{{ route('wisata.destroy', $item->id) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                                @if ($item->status == 'Active')
-                                                    <button type="submit" class="btn btn-primary"><span class="fa fa-toggle-on"></span></button>
-                                                @else
-                                                    <button type="submit" class="btn btn-danger"><span class="fa fa-toggle-off"></span></button>
-                                                @endif
-                                            </form>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

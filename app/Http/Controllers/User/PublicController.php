@@ -19,7 +19,7 @@ class PublicController extends Controller
 {
     public function index() {
         DB::statement("SET SQL_MODE=''");
-        $data = Wisata::all();
+        $data = Wisata::where('status', 'Active')->get();
         $data1 = PerhitunganWisata::where('fasilitas', '5')->orwhere('fasilitas', '4')->groupBy('wisata_id')->get();
         $data2 = PerhitunganWisata::where('harga_tiket', '5')->orwhere('harga_tiket', '4')->groupBy('wisata_id')->get();
         $data3 = PerhitunganWisata::where('jarak', '5')->orwhere('jarak', '4')->groupBy('wisata_id')->get();
@@ -70,7 +70,8 @@ class PublicController extends Controller
         $data = Wisata::where('id', $id)->first();
         $kriteriaFasilitas = KriteriaFasilitas::all();
         $kriteriaTiket =  KriteriaHargaTiket::all();
-        $kriteriaJarak =  KriteriaJarak::all();
+        // $kriteriaJarak =  KriteriaJarak::all();
+        $kriteriaJarak = KriteriaJarak::orderBy('bobot', 'DESC')->get();
         $kriteriaPelayanan =  KriteriaPelayanan::all();
         $kriteriaSuasana =  KriteriaSuasana::all();
 
