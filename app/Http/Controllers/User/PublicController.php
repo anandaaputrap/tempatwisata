@@ -70,7 +70,8 @@ class PublicController extends Controller
         $data = Wisata::where('id', $id)->first();
         $kriteriaFasilitas = KriteriaFasilitas::all();
         $kriteriaTiket =  KriteriaHargaTiket::all();
-        $kriteriaJarak =  KriteriaJarak::all();
+        // $kriteriaJarak =  KriteriaJarak::all();
+        $kriteriaJarak = KriteriaJarak::orderBy('bobot', 'DESC')->get();
         $kriteriaPelayanan =  KriteriaPelayanan::all();
         $kriteriaSuasana =  KriteriaSuasana::all();
 
