@@ -19,7 +19,8 @@ class ResultController extends Controller
     {
         $data = PerhitunganWisata::all();
         $bobot = BobotKeinginan::all();
-        $vektorV = VektorV::all();
+        $vektorV = VektorV::orderBy('vektor_v', 'DESC')->get();
+        // dd($vektorV);
         return view('template.admin.page.perhitungan.index', compact('data', 'bobot','vektorV'));
     }
 
