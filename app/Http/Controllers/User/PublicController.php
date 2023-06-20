@@ -69,12 +69,11 @@ class PublicController extends Controller
 
     public function survei($id) {
         $data = Wisata::where('id', $id)->first();
-        $kriteriaFasilitas = KriteriaFasilitas::all();
-        $kriteriaTiket =  KriteriaHargaTiket::all();
-        // $kriteriaJarak =  KriteriaJarak::all();
+        $kriteriaFasilitas = KriteriaFasilitas::orderBy('bobot', 'DESC')->get();
+        $kriteriaTiket =  KriteriaHargaTiket::orderBy('bobot', 'DESC')->get();
         $kriteriaJarak = KriteriaJarak::orderBy('bobot', 'DESC')->get();
-        $kriteriaPelayanan =  KriteriaPelayanan::all();
-        $kriteriaSuasana =  KriteriaSuasana::all();
+        $kriteriaPelayanan =  KriteriaPelayanan::orderBy('bobot', 'DESC')->get();
+        $kriteriaSuasana =  KriteriaSuasana::orderBy('bobot', 'DESC')->get();
 
         return view('template.public.pages.survei', compact([
             'data',
