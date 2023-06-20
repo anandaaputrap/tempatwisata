@@ -21,13 +21,23 @@
                             <tr>
                                 <th>Suasana</th>
                                 <th>Bobot</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $item)
                             <tr>
                                 <td>{{ $item->suasana }}</td>    
-                                <td>{{ $item->bobot }}</td>    
+                                <td>{{ $item->bobot }}</td>
+                                <td>
+                                    <div class="col-auto m-0 row">
+                                        <div class="col-auto g-1">
+                                            <a href="{{ route('kriteria-suasana.edit', $item->id) }}"
+                                                class="btn btn-warning" target="_blank"><span
+                                                    class="fa fa-pencil"></span></a>
+                                        </div>
+                                    </div>
+                                </td>    
                             </tr> 
                             @endforeach
                         </tbody>
