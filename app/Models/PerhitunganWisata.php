@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class PerhitunganWisata extends Model
 {
@@ -18,6 +19,7 @@ class PerhitunganWisata extends Model
         'jarak',
         'pelayanan',
         'suasana',
+        'total',
         'created_by',
         'wisata_id',
     ];
@@ -40,5 +42,15 @@ class PerhitunganWisata extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+
+    /**
+     * Get the user associated with the PerhitunganWisata
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function bobotKeinginan(): HasOne
+    {
+        return $this->hasOne(BobotKeinginan::class, 'perhitungan_id', 'id');
     }
 }

@@ -20,6 +20,7 @@ class CreateTablePerhitunganWisata extends Migration
             $table->integer('jarak');
             $table->integer('pelayanan');
             $table->integer('suasana');
+            $table->integer('total');
             $table->unsignedInteger('created_by');
             $table->foreign('created_by')->references('id')->on('users');
             $table->unsignedInteger('wisata_id');
