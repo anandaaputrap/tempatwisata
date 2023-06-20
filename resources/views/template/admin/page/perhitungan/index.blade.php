@@ -18,8 +18,8 @@
                                 <tr>
                                     <th>Wisata</th>
                                     <th>Tiket</th>
-                                    <th>Fasilitas</th>
                                     <th>Jarak</th>
+                                    <th>Fasilitas</th>
                                     <th>Pelayanan</th>
                                     <th>Suasana</th>
                                     <th>Jumlah</th>
@@ -30,8 +30,8 @@
                                     <tr>
                                         <td>{{ $item->wisata->nama_tempat }}</td>    
                                         <td>{{ $item->harga_tiket }}</td>    
-                                        <td>{{ $item->fasilitas }}</td>    
                                         <td>{{ $item->jarak }}</td>    
+                                        <td>{{ $item->fasilitas }}</td>    
                                         <td>{{ $item->pelayanan }}</td>    
                                         <td>{{ $item->suasana }}</td> 
                                         <td>{{ $item->total }}</td> 
