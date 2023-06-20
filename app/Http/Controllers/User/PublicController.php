@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\BobotKeinginan;
 use App\Models\KriteriaFasilitas;
 use App\Models\KriteriaHargaTiket;
 use App\Models\KriteriaJarak;
@@ -101,15 +102,42 @@ class PublicController extends Controller
 
         DB::beginTransaction();
         try {
-            PerhitunganWisata::create([
+
+          $total = $request->harga_tiket + $request->fasilitas + $request->jarak + $request->pelayanan + $request->suasana;
+
+           $data =  PerhitunganWisata::create([
                 'harga_tiket'=> $validation['harga_tiket'],
-                'fasilitas' => $validation['fasilitas'],
                 'jarak' => $validation['jarak'],
+                'fasilitas' => $validation['fasilitas'],
                 'pelayanan' => $validation['pelayanan'],
                 'suasana' => $validation['suasana'],
+                'total'  => $total,
                 'created_by' => $validation['created_by'],
                 'wisata_id'=> $validation['wisata_id']
             ]);
+
+            $c1 = $data->harga_tiket / $data->total;
+            $c2 = $data->jarak / $data->total;
+            $c3 = $data->fasilitas / $data->total;
+            $c4 = $data->pelayanan / $data->total;
+            $c5 = $data->suasana / $data->total;
+
+            $wj = $c1 + $c2 + $c3 + $c4 + $c5;
+
+            $vektors = pow($data->harga_tiket, $c1) *  pow($data->jarak, $c2) *  pow($data->fasilitas, $c3) *  pow($data->pelayanan, $c4) *  pow($data->suasana, $c5);
+
+            BobotKeinginan::create([
+                'c1'        => $c1, 
+                'c2'        => $c2,  
+                'c3'        => $c3,
+                'c4'        => $c4, 
+                'c5'        => $c5,  
+                'wj'        => $wj, 
+                'vektor_s'  => $vektors,
+                'perhitungan_id' => $data->id
+            ]);
+
+
             DB::commit();
 
             return redirect()->route('home')->with('success', 'Berhasil Menyimpan Survei');
