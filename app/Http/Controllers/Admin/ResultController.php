@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\BobotKeinginan;
 use App\Models\PerhitunganWisata;
+use App\Models\VektorV;
 use Illuminate\Http\Request;
 
 class ResultController extends Controller
@@ -18,8 +19,8 @@ class ResultController extends Controller
     {
         $data = PerhitunganWisata::all();
         $bobot = BobotKeinginan::all();
-        
-        return view('template.admin.page.perhitungan.index', compact('data', 'bobot'));
+        $vektorV = VektorV::all();
+        return view('template.admin.page.perhitungan.index', compact('data', 'bobot','vektorV'));
     }
 
     /**

@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <div class="col-sm-12">
+    <div class="col-sm-12 mt-3">
         <div class="card">
             <div class="card-header">
                 <div class="row">
@@ -142,9 +142,10 @@
                                 <tr>
                                     <th>Wisata</th>
                                     <th>Vektor V</th>
+                                    <th>Rank</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            {{-- <tbody>
                                 @php
                                     $total = 0;
                                 @endphp
@@ -157,6 +158,15 @@
                                         <td>
                                             {{ (pow($item->harga_tiket, $item->bobotKeinginan->c1) * pow($item->jarak, $item->bobotKeinginan->c2) * pow($item->fasilitas, $item->bobotKeinginan->c3) * pow($item->pelayanan, $item->bobotKeinginan->c4) * pow($item->suasana, $item->bobotKeinginan->c5)) / $total }}
                                         </td>
+                                    </tr>
+                                @endforeach
+                            </tbody> --}}
+                            <tbody>
+                                @foreach ($vektorV->sortBy('vektor_v') as $item)                                    
+                                    <tr>
+                                        <td>{{ $item->header->wisata->nama_tempat }}</td>
+                                        <td>{{ $item->vektor_v }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -11,6 +11,8 @@ use App\Models\KriteriaPelayanan;
 use App\Models\KriteriaSuasana;
 use App\Models\PerhitunganWisata;
 use App\Models\User;
+use App\Models\VektorS;
+use App\Models\VektorV;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -125,7 +127,7 @@ class PublicController extends Controller
 
             $vektors = pow($data->harga_tiket, $c1) *  pow($data->jarak, $c2) *  pow($data->fasilitas, $c3) *  pow($data->pelayanan, $c4) *  pow($data->suasana, $c5);
 
-            BobotKeinginan::create([
+           $bobot = BobotKeinginan::create([
                 'c1'        => $c1, 
                 'c2'        => $c2,  
                 'c3'        => $c3,
@@ -135,6 +137,32 @@ class PublicController extends Controller
                 'vektor_s'  => $vektors,
                 'perhitungan_id' => $data->id
             ]);
+
+            $dataS = BobotKeinginan::all();
+
+            $totalS = 0;
+            foreach ($dataS as $value) {
+                $totalS +=  $value->vektor_s;
+            }
+
+            $vektorV = $bobot->vektor_s / $totalS;
+            
+            VektorV::create([
+                'vektor_v' => $vektorV,
+                'perhitungan_id' => $data->id
+            ]);
+            
+            $all = PerhitunganWisata::all();
+
+            foreach ($all as $value) {
+
+                VektorV::where("perhitungan_id", $value->id)->update([
+                    'vektor_v' => $value->bobotKeinginan->vektor_s / $totalS
+                ]);
+
+            }
+
+
 
 
             DB::commit();

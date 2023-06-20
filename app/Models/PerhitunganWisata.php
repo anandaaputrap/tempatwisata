@@ -53,4 +53,14 @@ class PerhitunganWisata extends Model
     {
         return $this->hasOne(BobotKeinginan::class, 'perhitungan_id', 'id');
     }
+
+    /**
+     * Get the vektorS associated with the PerhitunganWisata
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function vektorV(): HasOne
+    {
+        return $this->hasOne(VektorV::class, 'perhitungan_id', 'id');
+    }
 }
