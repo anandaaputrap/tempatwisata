@@ -162,7 +162,7 @@
                                 @endforeach
                             </tbody> --}}
                             <tbody>
-                                @foreach ($vektorV->sortBy('vektor_v') as $item)                                    
+                                @foreach ($vektorV as $item)                                    
                                     <tr>
                                         <td>{{ $item->header->wisata->nama_tempat }}</td>
                                         <td>{{ $item->vektor_v }}</td>
