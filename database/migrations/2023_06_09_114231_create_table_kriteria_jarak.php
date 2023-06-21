@@ -16,6 +16,7 @@ class CreateTableKriteriaJarak extends Migration
         Schema::create('kriteria_jarak', function (Blueprint $table) {
             $table->integerIncrements('id');
             $table->string('jarak');
+            $table->string('kategori');
             $table->integer('bobot');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();

@@ -51,7 +51,6 @@
                         <li><a href="{{ route('kriteria-harga-tiket.index') }}" class="">Kriteria Harga Tiket</a>
                         </li>
                         <li><a href="{{ route('kriteria-jarak.index') }}" class="">Kriteria Jarak</a></li>
-                        <li><a href="{{ route('kriteria-pelayanan.index') }}" class="">Kriteria Pelayanan</a></li>
                         <li><a href="{{ route('kriteria-suasana.index') }}" class="">Kriteria Suasana</a></li>
                     </ul>
                 </li>

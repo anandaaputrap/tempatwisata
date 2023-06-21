@@ -20,7 +20,6 @@
                                     <th>Tiket</th>
                                     <th>Jarak</th>
                                     <th>Fasilitas</th>
-                                    <th>Pelayanan</th>
                                     <th>Suasana</th>
                                     <th>Jumlah</th>
                                 </tr>
@@ -31,8 +30,7 @@
                                         <td>{{ $item->wisata->nama_tempat }}</td>    
                                         <td>{{ $item->harga_tiket }}</td>    
                                         <td>{{ $item->jarak }}</td>    
-                                        <td>{{ $item->fasilitas }}</td>    
-                                        <td>{{ $item->pelayanan }}</td>    
+                                        <td>{{ $item->fasilitas }}</td>     
                                         <td>{{ $item->suasana }}</td> 
                                         <td>{{ $item->total }}</td> 
                                     </tr>
@@ -65,7 +63,6 @@
                                     <th>C2</th>
                                     <th>C3</th>
                                     <th>C4</th>
-                                    <th>C5</th>
                                     <th>WJ</th>
                                 </tr>
                             </thead>
@@ -77,7 +74,6 @@
                                         <td>{{ $item->c2 }}</td>
                                         <td>{{ $item->c3 }}</td>
                                         <td>{{ $item->c4 }}</td>
-                                        <td>{{ $item->c5 }}</td>
                                         <td>{{ $item->wj }}</td>
                                     </tr>
                                 @endforeach

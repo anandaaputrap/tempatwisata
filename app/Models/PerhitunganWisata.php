@@ -17,7 +17,6 @@ class PerhitunganWisata extends Model
         'harga_tiket',
         'fasilitas',
         'jarak',
-        'pelayanan',
         'suasana',
         'total',
         'created_by',

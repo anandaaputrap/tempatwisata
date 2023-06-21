@@ -27,8 +27,7 @@ class PublicController extends Controller
         $data2 = PerhitunganWisata::where('harga_tiket', '5')->orwhere('harga_tiket', '4')->groupBy('wisata_id')->get();
         $data3 = PerhitunganWisata::where('jarak', '5')->orwhere('jarak', '4')->groupBy('wisata_id')->get();
         $data4 = PerhitunganWisata::where('suasana', '5')->orwhere('suasana', '4')->groupBy('wisata_id')->get();
-        $data5 = PerhitunganWisata::where('pelayanan', '5')->orwhere('pelayanan', '4')->groupBy('wisata_id')->get();
-    
+
         return view('template.public.pages.destinasi', compact(['data', 'data1', 'data2', 'data3', 'data4', 'data5']));       
     }
 
@@ -74,7 +73,6 @@ class PublicController extends Controller
         $kriteriaFasilitas = KriteriaFasilitas::orderBy('bobot', 'DESC')->get();
         $kriteriaTiket =  KriteriaHargaTiket::orderBy('bobot', 'DESC')->get();
         $kriteriaJarak = KriteriaJarak::orderBy('bobot', 'DESC')->get();
-        $kriteriaPelayanan =  KriteriaPelayanan::orderBy('bobot', 'DESC')->get();
         $kriteriaSuasana =  KriteriaSuasana::orderBy('bobot', 'DESC')->get();
 
         return view('template.public.pages.survei', compact([
@@ -82,7 +80,6 @@ class PublicController extends Controller
             'kriteriaFasilitas',
             'kriteriaTiket',
             'kriteriaJarak',
-            'kriteriaPelayanan',
             'kriteriaSuasana',
 
         ]));
@@ -95,7 +92,6 @@ class PublicController extends Controller
             'harga_tiket' => 'required',
             'fasilitas' => 'required',
             'jarak' => 'required',
-            'pelayanan' => 'required',
             'suasana' => 'required',
             'created_by' => 'required',
             'wisata_id'=> 'required',
@@ -110,7 +106,6 @@ class PublicController extends Controller
                 'harga_tiket'=> $validation['harga_tiket'],
                 'jarak' => $validation['jarak'],
                 'fasilitas' => $validation['fasilitas'],
-                'pelayanan' => $validation['pelayanan'],
                 'suasana' => $validation['suasana'],
                 'total'  => $total,
                 'created_by' => $validation['created_by'],
@@ -120,19 +115,17 @@ class PublicController extends Controller
             $c1 = $data->harga_tiket / $data->total;
             $c2 = $data->jarak / $data->total;
             $c3 = $data->fasilitas / $data->total;
-            $c4 = $data->pelayanan / $data->total;
-            $c5 = $data->suasana / $data->total;
+            $c4 = $data->suasana / $data->total;
 
-            $wj = $c1 + $c2 + $c3 + $c4 + $c5;
+            $wj = $c1 + $c2 + $c3 + $c4;
 
-            $vektors = pow($data->harga_tiket, $c1) *  pow($data->jarak, $c2) *  pow($data->fasilitas, $c3) *  pow($data->pelayanan, $c4) *  pow($data->suasana, $c5);
+            $vektors = pow($data->harga_tiket, $c1) *  pow($data->jarak, $c2) *  pow($data->fasilitas, $c3) *  pow($data->pelayanan, $c4);
 
            $bobot = BobotKeinginan::create([
                 'c1'        => $c1, 
                 'c2'        => $c2,  
                 'c3'        => $c3,
-                'c4'        => $c4, 
-                'c5'        => $c5,  
+                'c4'        => $c4,  
                 'wj'        => $wj, 
                 'vektor_s'  => $vektors,
                 'perhitungan_id' => $data->id

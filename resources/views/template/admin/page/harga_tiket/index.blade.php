@@ -20,7 +20,7 @@
                         <thead>
                             <tr>
                                 <th>Harga</th>
-                                <th>Keterangan</th>
+                                <th>Kategori</th>
                                 <th>Bobot</th>
                                 <th>Action</th>
                             </tr>
@@ -29,7 +29,7 @@
                             @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $item->harga }}</td>
-                                    <td>{{ $item->keterangan }}</td>
+                                    <td>{{ $item->kategori }}</td>
                                     <td>{{ $item->bobot }}</td>
                                     <td>
                                         <div class="col-auto m-0 row">

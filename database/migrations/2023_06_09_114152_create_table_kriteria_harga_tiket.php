@@ -17,7 +17,7 @@ class CreateTableKriteriaHargaTiket extends Migration
             $table->integerIncrements('id');
             $table->string('harga');
             $table->integer('bobot');
-            $table->string('keterangan');
+            $table->string('kategori');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

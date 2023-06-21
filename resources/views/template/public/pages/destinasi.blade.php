@@ -107,7 +107,6 @@
                             <li data-filter="2">Harga Tiket</li>
                             <li data-filter="3">Jarak</li>
                             <li data-filter="4">Suasana</li>
-                            <li data-filter="5">Pelayanan</li>
                         </ul>
                     </div>
                 </div>
@@ -172,25 +171,6 @@
                 @endforeach
                 @foreach ($data4 as $item)
                     <div class="col-lg-4 col-md-6 filtr-item" data-category="4" data-sort="value">
-                        <div class="item-single mb-30">
-                            <div class="image">
-                                <img src="{{ asset('uploads/' . $item->wisata->foto) }}" alt="Demo Image" style="width: auto;height:252px;" />
-                            </div>
-                            <div class="content">
-                                <span class="location"><i class="bx bx-map"></i>{{ $item->wisata->alamat }}</span>
-                                <h3>
-                                    <a href="{{ route('destinasi.detail', $item->wisata_id) }}">{{ $item->wisata->nama_tempat }}</a>
-                                </h3>
-                                <p>
-                                    {!! Str::words($item->wisata->deskripsi , 20, ' ...') !!}
-                                </p>
-                                <hr />
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($data5 as $item)
-                    <div class="col-lg-4 col-md-6 filtr-item" data-category="5" data-sort="value">
                         <div class="item-single mb-30">
                             <div class="image">
                                 <img src="{{ asset('uploads/' . $item->wisata->foto) }}" alt="Demo Image" style="width: auto;height:252px;" />
