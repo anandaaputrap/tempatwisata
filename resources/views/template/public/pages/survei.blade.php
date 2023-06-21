@@ -139,7 +139,7 @@
                                                                                 id="tiketJawaban2">
                                                                             <label class="form-check-label"
                                                                                 for="tiketJawaban2">
-                                                                                {{ $item->keterangan }}
+                                                                                {{ $item->fasilitas }}
                                                                             </label>
                                                                         </div>
                                                                     </div>

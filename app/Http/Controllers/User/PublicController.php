@@ -28,7 +28,7 @@ class PublicController extends Controller
         $data3 = PerhitunganWisata::where('jarak', '5')->orwhere('jarak', '4')->groupBy('wisata_id')->get();
         $data4 = PerhitunganWisata::where('suasana', '5')->orwhere('suasana', '4')->groupBy('wisata_id')->get();
 
-        return view('template.public.pages.destinasi', compact(['data', 'data1', 'data2', 'data3', 'data4', 'data5']));       
+        return view('template.public.pages.destinasi', compact(['data', 'data1', 'data2', 'data3', 'data4']));       
     }
 
     public function detail($id) {
@@ -119,7 +119,8 @@ class PublicController extends Controller
 
             $wj = $c1 + $c2 + $c3 + $c4;
 
-            $vektors = pow($data->harga_tiket, $c1) *  pow($data->jarak, $c2) *  pow($data->fasilitas, $c3) *  pow($data->pelayanan, $c4);
+            $vektors = pow($data->harga_tiket, $c1) *  pow($data->jarak, $c2) *  pow($data->fasilitas, $c3) *  pow($data->suasana, $c4);
+
 
            $bobot = BobotKeinginan::create([
                 'c1'        => $c1, 
@@ -133,10 +134,13 @@ class PublicController extends Controller
 
             $dataS = BobotKeinginan::all();
 
+
             $totalS = 0;
             foreach ($dataS as $value) {
                 $totalS +=  $value->vektor_s;
             }
+
+
 
             $vektorV = $bobot->vektor_s / $totalS;
             
