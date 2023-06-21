@@ -15,6 +15,6 @@ class KriteriaHargaTiket extends Model
     protected $fillable = [
         'harga',
         'bobot',
-        'keterangan'
+        'kategori'
     ];
 }

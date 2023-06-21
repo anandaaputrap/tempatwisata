@@ -25,6 +25,12 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
+                                        <label class="form-label">Kategori</label>
+                                        <input class="form-control" type="text" name="kategori" placeholder="Kategori" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
                                         <label class="form-label">Bobot</label>
                                         <input class="form-control" type="text" name="bobot" placeholder="Bobot" />
                                     </div>
@@ -55,6 +61,13 @@
                                         <label class="form-label">Jarak</label>
                                         <input class="form-control" type="text" value="{{ $data->jarak }}"
                                             name="jarak" placeholder="Jarak" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Kategori</label>
+                                        <input class="form-control" type="text" value="{{ $data->kategori }}"
+                                            name="kategori" placeholder="Kategori" />
                                     </div>
                                 </div>
                                 <div class="col-md-4">

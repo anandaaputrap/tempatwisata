@@ -20,8 +20,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Fasilitas</th>
-                                <th>keterangan</th>
-                                <th>indikator</th>
                                 <th>Bobot</th>
                                 <th>Action</th>
                             </tr>
@@ -31,8 +29,6 @@
                             <tr>    
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->fasilitas }}</td>
-                                <td>{{ $item->keterangan }}</td>
-                                <td>{{ $item->indikator }}</td>
                                 <td>{{ $item->bobot }}</td>
                                 <td>
                                     <div class="col-auto m-0 row">

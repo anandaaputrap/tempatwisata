@@ -14,6 +14,7 @@ class KriteriaJarak extends Model
 
     protected $fillable = [
         'jarak',
-        'bobot'
+        'bobot',
+        'kategori'
     ];
 }

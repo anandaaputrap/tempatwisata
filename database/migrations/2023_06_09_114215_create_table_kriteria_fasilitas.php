@@ -16,9 +16,9 @@ class CreateTableKriteriaFasilitas extends Migration
         Schema::create('kriteria_fasilitas', function (Blueprint $table) {
             $table->integerIncrements('id');
             $table->string('fasilitas');
-            $table->string('indikator');
+            // $table->string('indikator');
             $table->integer('bobot');
-            $table->string('keterangan');
+            // $table->string('keterangan');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

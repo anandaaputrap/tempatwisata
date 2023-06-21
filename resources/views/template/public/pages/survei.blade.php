@@ -101,30 +101,6 @@
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">
-                                                        Pelayanan :
-                                                    </th>
-                                                    <td colspan="4">
-                                                        <div class="row">
-                                                            @foreach ($kriteriaPelayanan as $item)
-                                                                <div class="col">
-                                                                    <div class="form-group">
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                value="{{ $item->bobot }}" type="radio"
-                                                                                name="pelayanan" id="tiketJawaban2">
-                                                                            <label class="form-check-label"
-                                                                                for="tiketJawaban2">
-                                                                                {{ $item->pelayanan }}
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endforeach
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="1">
                                                         Suasana :
                                                     </th>
                                                     <td colspan="4">
@@ -163,7 +139,7 @@
                                                                                 id="tiketJawaban2">
                                                                             <label class="form-check-label"
                                                                                 for="tiketJawaban2">
-                                                                                {{ $item->keterangan }}
+                                                                                {{ $item->fasilitas }}
                                                                             </label>
                                                                         </div>
                                                                     </div>

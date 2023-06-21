@@ -15,8 +15,6 @@ class KriteriaFasilitas extends Model
 
     protected $fillable = [
         'fasilitas',
-        'bobot',
-        'indikator',
-        'keterangan'
+        'bobot'
     ];
 }

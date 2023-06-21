@@ -18,7 +18,6 @@ class CreateTablePerhitunganWisata extends Migration
             $table->integer('harga_tiket');
             $table->integer('fasilitas');
             $table->integer('jarak');
-            $table->integer('pelayanan');
             $table->integer('suasana');
             $table->integer('total');
             $table->unsignedInteger('created_by');

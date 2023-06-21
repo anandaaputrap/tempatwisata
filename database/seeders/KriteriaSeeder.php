@@ -21,137 +21,99 @@ class KriteriaSeeder extends Seeder
 
         $harga = [
             [
-                'harga' => '<20 Ribu',
-                'bobot' => '5',
-                'keterangan' => 'Sangat Murah',
-            ],
-            [
-                'harga' => '20 – 30 Ribu',
-                'bobot' => '4',
-                'keterangan' => 'Murah',
-            ],
-            [
-                'harga' => '30 – 50 Ribu',
+                'harga' => '< 10  Ribu',
                 'bobot' => '3',
-                'keterangan' => 'Sedang',
+                'kategori' => 'Murah',
             ],
             [
-                'harga' => '50 – 85 Ribu',
+                'harga' => '10 - 30 Ribu',
                 'bobot' => '2',
-                'keterangan' => 'Mahal',
+                'kategori' => 'Sedang',
             ],
             [
-                'harga' => '85 – 100 Ribu',
+                'harga' => '30 - 50 Ribu',
                 'bobot' => '1',
-                'keterangan' => 'Sangat Mahal',
+                'kategori' => 'Mahal',
             ]
         ];
 
-        KriteriaHargaTiket::insert($harga);
+        foreach ($harga as $value) {
+            KriteriaHargaTiket::create($value);
+        }
+
 
 
         $jarak = [
             [
                 'jarak' => '<2 Km',
-                'bobot' => '5'
+                'bobot' => '5',
+                'kategori' => 'Sangat Dekat'
+            ],
+            [
+                'jarak' => '2 – 3 Km',
+                'bobot' => '4',
+                'kategori' => 'Dekat'
             ],
             [
                 'jarak' => '3 – 4 Km',
-                'bobot' => '4'
+                'bobot' => '3',
+                'kategori' => 'Sedang'
             ],
             [
                 'jarak' => '4 – 5 Km',
-                'bobot' => '3'
+                'bobot' => '2',
+                'kategori' => 'Jauh'
             ],
             [
                 'jarak' => '5 – 6 Km',
-                'bobot' => '2'
-            ],
-            [
-                'jarak' => '6 – 8 Km',
-                'bobot' => '1'
+                'bobot' => '1',
+                'kategori' => 'Sangat Jauh'
             ]
         ];
 
-        KriteriaJarak::insert($jarak);
+        foreach ($jarak as $value) {
+            KriteriaJarak::create($value);
+        }
         
 
         $fasilitas = [
             [
-                'fasilitas' => 'Fasilitas Transportasi',
-                'indikator' => 'Grab, Gojek, Maxim',
+                'fasilitas' => 'Tidak Ada',
+                'bobot'     => '0',
+            ],
+            [
+                'fasilitas' => 'Toilet',
                 'bobot'     => '1',
-                'keterangan'=> 'Kurang Lengkap'
             ],
             [
-                'fasilitas' => 'Fasilitas Pelayanan',
-                'indikator' => 'Tempat Ibadah, Klinik, Pusat Informasi, tempat parkir',
+                'fasilitas' => 'Tempat Ibadah & Toilet',
                 'bobot'     => '2',
-                'keterangan'=> 'Cukup Lengkap'
             ],
             [
-                'fasilitas' => 'Fasilitas Penginapan',
-                'indikator' => 'Hotel, Villa',
-                'bobot'     => '3',
-                'keterangan'=> 'Sedang'
-            ],
-            [
-                'fasilitas' => 'Fasilitas Perbelanjaan',
-                'indikator' => 'Toko Oleh-oleh, Minimarket',
-                'bobot'     => '4',
-                'keterangan'=> 'Lengkap'
-            ],
-            [
-                'fasilitas' => 'Fasilitas Tempat Makan',
-                'indikator' => 'Restoran, Warung, Food Court',
-                'bobot'     => '5',
-                'keterangan'=> 'Sangat Lengkap'
-            ]
-        ];
-
-        KriteriaFasilitas::insert($fasilitas);
-
-
-        $pelayanan = [
-            [
-                'pelayanan' => 'Ramah tamah',
-                'bobot'     => '5'
-            ],
-            [
-                'pelayanan' => 'Nyaman',
-                'bobot'     => '4'
-            ],
-            [
-                'pelayanan' => 'Cepat',
+                'fasilitas' => 'Restoran',
                 'bobot'     => '3'
             ],
             [
-                'pelayanan' => 'Cukup Ramah',
-                'bobot'     => '2'
+                'fasilitas' => 'Tempat Ibadah & Toilet & Restoran',
+                'bobot'     => '4',
             ],
             [
-                'pelayanan' => 'Kurang ramah',
-                'bobot'     => '1'
+                'fasilitas' => 'empat Ibadah & Toilet & Restoran & Hotel',
+                'bobot'     => '5',
             ]
         ];
 
-        KriteriaPelayanan::insert($pelayanan);
+        foreach ($fasilitas as $value) {
+            KriteriaFasilitas::create($value);
+        }
 
         $suasana = [
             [
-                'suasana' => 'Sangat ramai',
-                'bobot'   => '5',
-            ],
-            [
                 'suasana' => 'Ramai',
-                'bobot'   => '4',
-            ],
-            [
-                'suasana' => 'Cukup ramai',
                 'bobot'   => '3',
             ],
             [
-                'suasana' => 'Kurang ramai',
+                'suasana' => 'Sedang',
                 'bobot'   => '2',
             ],
             [
@@ -159,6 +121,9 @@ class KriteriaSeeder extends Seeder
                 'bobot'   => '1',
             ]
         ];
-        KriteriaSuasana::insert($suasana);
+
+        foreach ($suasana as $value) {
+            KriteriaSuasana::create($value);
+        }
     }
 }

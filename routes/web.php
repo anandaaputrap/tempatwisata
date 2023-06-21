@@ -50,7 +50,6 @@ Route::group(['middleware' => 'role:admin'], function () {
             'kriteria-fasilitas' => KriteriaFasilitasController::class,
             'kriteria-harga-tiket' => KriteriaHargaController::class,
             'kriteria-jarak' => KriteriaJarakController::class,
-            'kriteria-pelayanan' => KriteriaPelayananController::class,
             'kriteria-suasana' => KriteriaSuasanaController::class,
             'perhitungan-data' => ResultController::class,
         ]);

@@ -50,7 +50,6 @@
                                                     <tr>
                                                         <th>Nilai Fasilitas</th>
                                                         <th>Nilai Harga Tiket</th>
-                                                        <th>Nilai Pelayanan</th>
                                                         <th>Nilai Jarak</th>
                                                         <th>Nilai Suasana</th>
                                                     </tr>
@@ -59,7 +58,6 @@
                                                     <tr>
                                                         <td>{{ $item->fasilitas }}</td>
                                                         <td>{{ $item->harga_tiket }}</td>
-                                                        <td>{{ $item->pelayanan }}</td>
                                                         <td>{{ $item->jarak }}</td>
                                                         <td>{{ $item->suasana }}</td>
                                                     </tr>

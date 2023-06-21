@@ -19,7 +19,6 @@ class CreateBobotKeinginansTable extends Migration
             $table->float('c2');
             $table->float('c3');
             $table->float('c4');
-            $table->float('c5');
             $table->double('wj');
             $table->double('vektor_s');
             $table->unsignedInteger('perhitungan_id');
